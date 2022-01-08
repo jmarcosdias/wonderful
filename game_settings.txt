@@ -1,5 +1,5 @@
 {
     "game_dictionary_name": "Weird And Wonderful Words",
     "minimum_number_of_questions_per_game_session": 1,
-    "minimum_number_of_questions_per_game_session": 10
+    "maximum_number_of_questions_per_game_session": 10
 }
