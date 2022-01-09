@@ -1,36 +1,37 @@
-import json
+from game_settings import game_settings
 
-def read_dictionary_file(filename):
+class GameSession:
+    def __init__(self, n_questions):
+        self.n_questions = n_questions
+
+def game_loop():
     """
-    Reads a file that contains a dictionary.
-    Returns the dictionary loaded into a dict object.
+    A game session is initialized and carried out up to its end. The user is then
+    asked if they would like to play again or exit. This repeats consecutively 
+    until the user answers they want to exit.
     """
-    try:
-        with open(filename, "r") as file:
-            dict_str = file.read()
-        loaded_dict = json.loads(dict_str)
-        return loaded_dict
-    except Exception:
-        print(f"\nError when reading the {filename} file.\nPlease contact the Support Team.\n")
-        raise
+    play = True
+    while play:
+        n_questions = input(
+            f"\nHow many questions would you like to have in your game session ("
+            f"{game_settings['min_n_questions']} to "
+            f"{game_settings['max_n_questions']})?\n")
 
-print("Welcome to the Wonderful Words game!\n")
+        GameSession(n_questions)
 
-print("Loading game settings...")
-game_settings = read_dictionary_file("game_settings.dict")
-print("Game settings loaded.")
-print(f"Game Dictionary Name: \"{game_settings['game_dictionary_name']}\".\n")
+        user_answer = None
+        while user_answer not in ('1', '2'):
+            user_answer = input("\nPlease type 1 to play again or type 2 to "
+                                "exit\n")
+            if user_answer == '2':
+                play = False
 
-print(f"Loading the \"{game_settings['game_dictionary_name']}\" dictionary...")
-game_dictionary = read_dictionary_file("game_dictionary.dict")
-print(f"\"{game_settings['game_dictionary_name']}\" dictionary loaded.\n")
+def main():
+    """
+    Run the game loop.
+    """
+    game_loop()
 
-print("I just need to ask you two questions and the game will start!")
-player_name = input("\nWhat is your name?\n")
-n_questions = input(
-    "\nHow many questions would you like to have in your game session"
-    f" ({game_settings['minimum_number_of_questions_per_game_session']} to "
-    f" {game_settings['maximum_number_of_questions_per_game_session']})?\n")
-
-print(f"\n{player_name}, I am starting a new game session with "
-      f"{n_questions} questions for you...")
+print("\nWelcome to the Wonderful Words game!")
+print(f"\nThis game's dictionary is: \"{game_settings['game_dictionary_name']}\".")
+main()
