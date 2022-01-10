@@ -1,8 +1,21 @@
 from game_settings import game_settings
 
 class GameSession:
+    """
+    A game session with a certain number of questions
+    """
     def __init__(self, n_questions):
-        self.n_questions = n_questions
+        self.__n_questions = n_questions
+        self.__current_question = 0
+        self.__correct_answers = 0
+        self.__incorrect_answers = 0
+
+    def print_summary(self):
+        print("\nSummary of your game session")
+        print("----------------------------------------")
+        print(f"Number of questions: {self.__n_questions}")
+        print(f"Number of correct answers: {self.__correct_answers}")
+        print(f"Number of incorrect answers: {self.__incorrect_answers}")
 
 def game_loop():
     """
@@ -17,7 +30,8 @@ def game_loop():
             f"{game_settings['min_n_questions']} to "
             f"{game_settings['max_n_questions']})?\n")
 
-        GameSession(n_questions)
+        gs = GameSession(n_questions)
+        gs.print_summary()
 
         user_answer = None
         while user_answer not in ('1', '2'):
