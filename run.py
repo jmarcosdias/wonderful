@@ -1,4 +1,6 @@
 from game_settings import game_settings
+from pprint import pprint
+import random
 
 class GameSession:
     """
@@ -9,7 +11,46 @@ class GameSession:
         self.__current_question = 0
         self.__correct_answers = 0
         self.__incorrect_answers = 0
-        self.__history = []
+        self.__ux_list = []
+
+
+    def prepare_questions(self):
+        """
+        Prepares all the information required to provide to the user in
+        a game session. This includes the questions, options available to
+        choose for each question and the correct answer for each question.
+        """
+        print("\nI am preparing the questions for your game session...")
+
+        # Creates a list of words to use in this session
+        words_list = random.sample(
+            list(game_settings['game_dictionary']), self.__N_QUESTIONS *
+            game_settings['n_options']
+        )
+
+        # Creates a list of lists of words (each word is an option)
+        options_lists = [
+            words_list[index: index + game_settings['n_options']]
+            for index in range(0, len(words_list),
+                               game_settings['n_options'])
+        ]
+
+        # Iterates the options lists and fills the user experience list
+        # for this session, with everything we can at this moment
+        for options_list in options_lists:
+            correct_answer = options_list[0]
+            question = 'What is the word for "'+game_settings[
+                'game_dictionary'][options_list[0]]+'"?'
+            random.shuffle(options_list)
+            self.__ux_list.append(
+                {
+                    "question": question,
+                    "correct_answer": correct_answer,
+                    "options": options_list,
+                    "user_answer": None
+                }
+            )
+        print("Questions prepared.")
 
     def play(self):
         """
@@ -87,8 +128,9 @@ def game_loop():
                 f"{game_settings['max_n_questions']}: "))
 
         game_session = GameSession(n_questions.get_value())
-        game_session.play()
-        game_session.print_summary()
+        game_session.prepare_questions()
+        #game_session.play()
+        #game_session.print_summary()
 
         user_answer = None
         while user_answer not in ('1', '2'):
@@ -106,3 +148,6 @@ def main():
 print("\nWelcome to the Wonderful Words game!")
 print(f"\nThis game's dictionary is: \"{game_settings['game_dictionary_name']}\".")
 main()
+
+
+
