@@ -9,6 +9,22 @@ class GameSession:
         self.__current_question = 0
         self.__correct_answers = 0
         self.__incorrect_answers = 0
+        self.__history = []
+
+    def play(self):
+        """
+        Runs an entire game session, asking the user all the questions, one
+        after another. The relevant data for the game session is kept in
+        memory in this instance of the game session.
+        """
+        if self.__current_question != 0:
+            # impossible situation unless there is an error in the code
+            print("\nThis game session is already going on or it has ended "
+                  "and cannot be replayed.")
+            return
+        for self.__current_question in range(1, 1+self.__N_QUESTIONS):
+            print(f'\nQuestion {self.__current_question}:\nWhat is the word for'
+                  ' "..."?\n')
 
     def print_summary(self):
         print("\nSummary of your game session\n----------------------------")
@@ -18,7 +34,9 @@ class GameSession:
 
 class NumberOfQuestions:
     """
-    A number representing the number of questions for a game session
+    A number representing the number of questions for a game session.
+    This class is used to validate the value for number of questions
+    provided by the user.
     """
     def __init__(self):
         self.__value = None
@@ -47,11 +65,16 @@ class NumberOfQuestions:
 
 def game_loop():
     """
-    This is the main loop of the game: 
-    1) The user chooses the number of questions.
-    2) A game session is initialized.
-    3) The user plays the game session up to its end.
-    4) The user can choose to play again (repeat 1,2,3,4) or exit.
+    This function implements the main loop of the game. Each iteration of
+    this loop does the following:
+    1) Collects and validates the number of questions to be included in
+       the next game session.
+    2) Initializes a game session.
+    3) ...
+    4) Asks the user if they want to play again or exit.
+
+    This function loops, repeating the steps 1 to 4 above, until the user
+    answers in step 4 to exit.
     """
     play = True
     while play:
@@ -63,8 +86,9 @@ def game_loop():
                 f"{game_settings['min_n_questions']} and "
                 f"{game_settings['max_n_questions']}: "))
 
-        gs = GameSession(n_questions.get_value())
-        gs.print_summary()
+        game_session = GameSession(n_questions.get_value())
+        game_session.play()
+        game_session.print_summary()
 
         user_answer = None
         while user_answer not in ('1', '2'):
