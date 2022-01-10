@@ -68,8 +68,8 @@ def game_loop():
 
         user_answer = None
         while user_answer not in ('1', '2'):
-            user_answer = input("\nPlease type 1 to play again or type 2 to "
-                                "exit\n")
+            user_answer = input("\nPlease type 1 to play again or 2 to "
+                                "exit: ")
             if user_answer == '2':
                 play = False
 
