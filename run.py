@@ -7,10 +7,8 @@ class GameSession:
     A game session with a certain fixed number of questions
     """
     def __init__(self, n_questions):
-        self.__N_QUESTIONS = n_questions
-        self.__current_question = 0
+        self.__n_questions = n_questions
         self.__correct_answers = 0
-        self.__incorrect_answers = 0
         self.__ux_list = []
 
 
@@ -24,7 +22,7 @@ class GameSession:
 
         # Creates a list of words to use in this session
         words_list = random.sample(
-            list(game_settings['game_dictionary']), self.__N_QUESTIONS *
+            list(game_settings['game_dictionary']), self.__n_questions *
             game_settings['n_options']
         )
 
@@ -58,20 +56,13 @@ class GameSession:
         after another. The relevant data for the game session is kept in
         memory in this instance of the game session.
         """
-        if self.__current_question != 0:
-            # impossible situation unless there is an error in the code
-            print("\nThis game session is already going on or it has ended "
-                  "and cannot be replayed.")
-            return
-        for self.__current_question in range(1, 1+self.__N_QUESTIONS):
-            print(f'\nQuestion {self.__current_question}:\nWhat is the word for'
-                  ' "..."?\n')
+        for ux_element in self.__ux_list:
+            print(ux_element)
 
     def print_summary(self):
         print("\nSummary of your game session\n----------------------------")
-        print(f"Number of questions: {self.__N_QUESTIONS}")
+        print(f"Number of questions: {self.__n_questions}")
         print(f"Number of correct answers: {self.__correct_answers}")
-        print(f"Number of incorrect answers: {self.__incorrect_answers}")
 
 class NumberOfQuestions:
     """
@@ -129,7 +120,7 @@ def game_loop():
 
         game_session = GameSession(n_questions.get_value())
         game_session.prepare_questions()
-        #game_session.play()
+        game_session.play()
         #game_session.print_summary()
 
         user_answer = None
