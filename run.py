@@ -2,17 +2,17 @@ from game_settings import game_settings
 
 class GameSession:
     """
-    A game session with a certain number of questions
+    A game session with a certain fixed number of questions
     """
     def __init__(self, n_questions):
-        self.__n_questions = n_questions
+        self.__N_QUESTIONS = n_questions
         self.__current_question = 0
         self.__correct_answers = 0
         self.__incorrect_answers = 0
 
     def print_summary(self):
         print("\nSummary of your game session\n----------------------------")
-        print(f"Number of questions: {self.__n_questions}")
+        print(f"Number of questions: {self.__N_QUESTIONS}")
         print(f"Number of correct answers: {self.__correct_answers}")
         print(f"Number of incorrect answers: {self.__incorrect_answers}")
 
@@ -47,9 +47,11 @@ class NumberOfQuestions:
 
 def game_loop():
     """
-    A game session is initialized and carried out up to its end. The user is
-    then asked if they would like to play again or exit. This repeats
-    consecutively until the user answers they want to exit.
+    This is the main loop of the game: 
+    1) The user chooses the number of questions.
+    2) A game session is initialized.
+    3) The user plays the game session up to its end.
+    4) The user can choose to play again (repeat 1,2,3,4) or exit.
     """
     play = True
     while play:
