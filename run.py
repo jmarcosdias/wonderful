@@ -2,6 +2,42 @@ from game_settings import game_settings
 from pprint import pprint
 import random
 
+def game_loop():
+    """
+    This function implements the main loop of the game. Each iteration of
+    this loop does the following:
+    1) Collects and validates the number of questions to be included in
+       the next game session.
+    2) Initializes a game session.
+    3) ...
+    4) Asks the user if they want to play again or exit.
+
+    This function loops, repeating the steps 1 to 4 above, until the user
+    answers in step 4 to exit.
+    """
+    play = True
+    while play:
+        n_questions = ValidValue(validate_n_questions, int)
+        while n_questions.is_invalid():
+            n_questions.set_value(input(
+                f"\nHow many questions would you like to have in your game "
+                "session?\nPlease type a number between "
+                f"{game_settings['min_n_questions']} and "
+                f"{game_settings['max_n_questions']}: "))
+
+        game_session = GameSession(n_questions.get_value(), 5)
+        game_session.prepare_questions()
+        game_session.play()
+        game_session.print_summary()
+
+        user_answer = None
+        while user_answer not in ('1', '2'):
+            user_answer = input("\nPlease type 1 to play again or 2 to "
+                                "exit: ")
+            if user_answer == '2':
+                play = False
+
+
 class GameSession:
     """
     A game session with a certain fixed number of questions
@@ -9,9 +45,8 @@ class GameSession:
     def __init__(self, n_questions, n_options):
         self.__n_questions = n_questions
         self.__n_options = n_options
-        self.__correct_answers = 0
+        #self.__correct_answers = 0
         self.__ux_list = []
-
 
     def prepare_questions(self):
         """
@@ -67,15 +102,18 @@ class GameSession:
         #print(f"Number of correct answers: {self.__correct_answers}")
         pprint(self.__ux_list)
 
-class NumberOfQuestions:
+
+class ValidValue:
     """
-    A number representing the number of questions for a game session.
-    This class is used to validate the value for number of questions
-    provided by the user.
+    A value that is considered valid or invalid.
+    validator is a function that validates the value.
+    converter is a function that converts the value in case it is valid.
     """
-    def __init__(self):
+    def __init__(self, validator, converter):
         self.__value = None
-        self.__valid = False
+        self.__valid = None
+        self.__validator = validator
+        self.__converter = converter
     
     def is_valid(self):
         return self.__valid
@@ -84,19 +122,16 @@ class NumberOfQuestions:
         return not self.__valid
 
     def set_value(self, value):
-        self.__value = value
-        try:
-            self.__value = int(self.__value)
-        except Exception:
-            return
-        if self.__value < game_settings['min_n_questions']:
-            return
-        if self.__value > game_settings['max_n_questions']:
-            return
-        self.__valid = True
+        self.__valid = self.__validator(value)
+        if (self.__valid):
+            self.__value = self.__converter(value)
         
     def get_value(self):
         return self.__value
+
+
+
+
 
 def collect_user_answer(ux_element):
     """
@@ -110,50 +145,25 @@ def collect_user_answer(ux_element):
                         f' {len(ux_element["options"])}: ')
     return(ux_element["options"][int(user_answer)-1])
 
-def game_loop():
-    """
-    This function implements the main loop of the game. Each iteration of
-    this loop does the following:
-    1) Collects and validates the number of questions to be included in
-       the next game session.
-    2) Initializes a game session.
-    3) ...
-    4) Asks the user if they want to play again or exit.
 
-    This function loops, repeating the steps 1 to 4 above, until the user
-    answers in step 4 to exit.
-    """
-    play = True
-    while play:
-        n_questions = NumberOfQuestions()
-        while n_questions.is_invalid():
-            n_questions.set_value(input(
-                f"\nHow many questions would you like to have in your game "
-                "session?\nPlease type a number between "
-                f"{game_settings['min_n_questions']} and "
-                f"{game_settings['max_n_questions']}: "))
 
-        game_session = GameSession(n_questions.get_value(), 5)
-        game_session.prepare_questions()
-        game_session.play()
-        game_session.print_summary()
 
-        user_answer = None
-        while user_answer not in ('1', '2'):
-            user_answer = input("\nPlease type 1 to play again or 2 to "
-                                "exit: ")
-            if user_answer == '2':
-                play = False
 
-def main():
+def validate_n_questions(n_questions):
     """
-    Run the game loop.
+    This function validates the number of questions user input
     """
-    game_loop()
+    if not n_questions.isnumeric():
+        return False
+    n_questions_int = int(n_questions)
+    if n_questions_int < game_settings["min_n_questions"]:
+        return False
+    if n_questions_int > game_settings["max_n_questions"]:
+        return False
+    return True
+
 
 print("\nWelcome to the Wonderful Words game!")
-print(f"\nThis game's dictionary is: \"{game_settings['game_dictionary_name']}\".")
-main()
-
-
-
+print(f"\nThis game's dictionary is:"
+      f" \"{game_settings['game_dictionary_name']}\".")
+game_loop()
