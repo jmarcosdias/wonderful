@@ -37,8 +37,9 @@ class GameSession:
         # for this session, with everything we can at this moment
         for options_list in options_lists:
             correct_answer = options_list[0]
-            question = 'What is the word for "'+game_settings[
-                'game_dictionary'][options_list[0]]+'"?'
+            question = f'Question {1 + len(self.__ux_list)}: What is the word'\
+                       f' for "'\
+                       f'{game_settings["game_dictionary"][options_list[0]]}" ?'
             random.shuffle(options_list)
             self.__ux_list.append(
                 {
@@ -53,16 +54,17 @@ class GameSession:
     def play(self):
         """
         Runs an entire game session, asking the user all the questions, one
-        after another. The relevant data for the game session is kept in
-        memory in this instance of the game session.
+        at a time. The relevant data for the game session is updated in this
+        object's instance
         """
         for ux_element in self.__ux_list:
-            print(ux_element)
+            ux_element["user_answer"] = collect_user_answer(ux_element)
 
     def print_summary(self):
-        print("\nSummary of your game session\n----------------------------")
-        print(f"Number of questions: {self.__n_questions}")
-        print(f"Number of correct answers: {self.__correct_answers}")
+        #print("\nSummary of your game session\n----------------------------")
+        #print(f"Number of questions: {self.__n_questions}")
+        #print(f"Number of correct answers: {self.__correct_answers}")
+        pprint(self.__ux_list)
 
 class NumberOfQuestions:
     """
@@ -95,6 +97,18 @@ class NumberOfQuestions:
     def get_value(self):
         return self.__value
 
+def collect_user_answer(ux_element):
+    """
+    Presents a question with the possible options for to the user to answer
+    and collects the user answer.
+    """
+    print(f'\n{ux_element["question"]}')
+    for i in range(0, len(ux_element["options"])):
+        print(f'{i+1} - {ux_element["options"][i]}')
+    user_answer = input(f"Please type a number between 1 and "
+                        f" {game_settings['n_options']}: ")
+    return(ux_element["options"][int(user_answer)-1])
+
 def game_loop():
     """
     This function implements the main loop of the game. Each iteration of
@@ -121,7 +135,7 @@ def game_loop():
         game_session = GameSession(n_questions.get_value())
         game_session.prepare_questions()
         game_session.play()
-        #game_session.print_summary()
+        game_session.print_summary()
 
         user_answer = None
         while user_answer not in ('1', '2'):
