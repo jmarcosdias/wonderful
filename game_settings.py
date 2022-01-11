@@ -2,7 +2,8 @@ game_settings = {
     "game_dictionary_name": "Weird And Wonderful Words",
     "min_n_questions": 1,
     "max_n_questions": 10,
-    "n_options": 4,
+    "min_n_options": 3,
+    "max_n_options": 5,
     "game_dictionary": {
         "aa": "a kind of volcanic lava that forms jagged masses with a light \
 frothy texture; in an unrelated sense (‘a stream’) aa is the first entry in \

@@ -6,8 +6,9 @@ class GameSession:
     """
     A game session with a certain fixed number of questions
     """
-    def __init__(self, n_questions):
+    def __init__(self, n_questions, n_options):
         self.__n_questions = n_questions
+        self.__n_options = n_options
         self.__correct_answers = 0
         self.__ux_list = []
 
@@ -23,14 +24,14 @@ class GameSession:
         # Creates a list of words to use in this session
         words_list = random.sample(
             list(game_settings['game_dictionary']), self.__n_questions *
-            game_settings['n_options']
+            self.__n_options
         )
 
         # Creates a list of lists of words (each word is an option)
         options_lists = [
-            words_list[index: index + game_settings['n_options']]
+            words_list[index: index + self.__n_options]
             for index in range(0, len(words_list),
-                               game_settings['n_options'])
+                               self.__n_options)
         ]
 
         # Iterates the options lists and fills the user experience list
@@ -105,8 +106,8 @@ def collect_user_answer(ux_element):
     print(f'\n{ux_element["question"]}')
     for i in range(0, len(ux_element["options"])):
         print(f'{i+1} - {ux_element["options"][i]}')
-    user_answer = input(f"Please type a number between 1 and "
-                        f" {game_settings['n_options']}: ")
+    user_answer = input(f'Please type a number between 1 and '
+                        f' {len(ux_element["options"])}: ')
     return(ux_element["options"][int(user_answer)-1])
 
 def game_loop():
@@ -132,7 +133,7 @@ def game_loop():
                 f"{game_settings['min_n_questions']} and "
                 f"{game_settings['max_n_questions']}: "))
 
-        game_session = GameSession(n_questions.get_value())
+        game_session = GameSession(n_questions.get_value(), 5)
         game_session.prepare_questions()
         game_session.play()
         game_session.print_summary()
