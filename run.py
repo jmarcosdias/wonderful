@@ -68,7 +68,6 @@ class GameSession:
     def __init__(self, n_questions, n_options):
         self.__n_questions = n_questions
         self.__n_options = n_options
-        #self.__correct_answers = 0
         self.__ux_list = []
 
     def prepare_questions(self):
@@ -98,7 +97,8 @@ class GameSession:
             correct_answer = options_list[0]
             question = f'Question {1 + len(self.__ux_list)}: What is the word'\
                        f' for "'\
-                       f'{game_settings["game_dictionary"][options_list[0]]}" ?'
+                       f'{game_settings["game_dictionary"][options_list[0]]}'\
+                       '" ?'
             random.shuffle(options_list)
             self.__ux_list.append(
                 {
@@ -148,9 +148,7 @@ class ValidValue:
 
     def set_value(self, value):
         for validator in self.__validators:
-            pprint(validator)
             if not validator(value):
-                print("not valid")
                 self.__valid = False
                 return
         self.__valid = True
@@ -162,15 +160,31 @@ class ValidValue:
 
 def collect_user_answer(ux_element):
     """
-    Presents a question with the possible options for to the user to answer
+    Presents a question with the possible options for the user to answer
     and collects the user answer.
     """
     print(f'\n{ux_element["question"]}')
     for i in range(0, len(ux_element["options"])):
         print(f'{i+1} - {ux_element["options"][i]}')
-    user_answer = input(f'Please type a number between 1 and '
-                        f' {len(ux_element["options"])}: ')
-    return(ux_element["options"][int(user_answer)-1])
+
+    answer_to_game_question = ValidValue(
+            [is_numeric, 
+             is_greater_or_equal(1), 
+             is_less_or_equal(len(ux_element["options"]))], int
+    )
+    while answer_to_game_question.is_invalid():
+        answer_to_game_question.set_value(input(
+            f'Please type a number between 1 and '
+            f' {len(ux_element["options"])}: ')
+        )
+    return(ux_element["options"][answer_to_game_question.get_value()-1])
+
+
+
+
+
+
+
 
 def is_numeric(value):
     return value.isnumeric()
