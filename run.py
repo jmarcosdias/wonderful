@@ -2,40 +2,63 @@ from game_settings import game_settings
 from pprint import pprint
 import random
 
+
 def game_loop():
     """
-    This function implements the main loop of the game. Each iteration of
-    this loop does the following:
-    1) Collects and validates the number of questions to be included in
-       the next game session.
-    2) Initializes a game session.
-    3) ...
-    4) Asks the user if they want to play again or exit.
-
-    This function loops, repeating the steps 1 to 4 above, until the user
-    answers in step 4 to exit.
+    This function implements the main loop of the game.
+    Each iteration of this loop does the following:
+        1) Collects the number of questions for the game session.
+        2) Collects the number of options for each question.
+        3) Initializes a game session.
+        4) Prepares the questions for the game session.
+        5) Plays the game session.
+        6) Prints the summary of the game session.
+        7) Asks the user to play again or exit.
     """
     play = True
     while play:
-        n_questions = ValidValue(validate_n_questions, int)
+        n_questions = ValidValue(
+            [is_numeric,
+             is_greater_or_equal(game_settings['min_n_questions']),
+             is_less_or_equal(game_settings['max_n_questions'])],
+            int
+        )
         while n_questions.is_invalid():
             n_questions.set_value(input(
-                f"\nHow many questions would you like to have in your game "
+                f"\nHow many questions would you like to see in your game "
                 "session?\nPlease type a number between "
                 f"{game_settings['min_n_questions']} and "
                 f"{game_settings['max_n_questions']}: "))
+        
+        n_options = ValidValue(
+            [is_numeric,
+             is_greater_or_equal(game_settings['min_n_options']),
+             is_less_or_equal(game_settings['max_n_options'])],
+            int
+        )
+        while n_options.is_invalid():
+            n_options.set_value(input(
+                f"\nHow many options would you like to see for each question?"
+                "\nPlease type a number between "
+                f"{game_settings['min_n_options']} and "
+                f"{game_settings['max_n_options']}: "))
 
-        game_session = GameSession(n_questions.get_value(), 5)
+        game_session = GameSession(n_questions.get_value(),
+                                   n_options.get_value())
         game_session.prepare_questions()
         game_session.play()
         game_session.print_summary()
 
-        user_answer = None
-        while user_answer not in ('1', '2'):
-            user_answer = input("\nPlease type 1 to play again or 2 to "
-                                "exit: ")
-            if user_answer == '2':
-                play = False
+        play_again_or_exit = ValidValue(
+            [is_numeric, is_greater_or_equal(1), is_less_or_equal(2)], int
+        )
+        while play_again_or_exit.is_invalid():
+            play_again_or_exit.set_value(input(
+                "\nPlease type 1 to play again or 2 to exit: ")
+            )
+
+        if play_again_or_exit.get_value() == 2:
+            play = False
 
 
 class GameSession:
@@ -105,14 +128,16 @@ class GameSession:
 
 class ValidValue:
     """
-    A value that is considered valid or invalid.
-    validator is a function that validates the value.
-    converter is a function that converts the value in case it is valid.
+    Class for a value that is considered valid or invalid.
+    The constructor receives: 
+        1) validators, which is an array of functions to validate the value.
+        2) converter, which is a function to convert the value in case it is
+           valid.
     """
-    def __init__(self, validator, converter):
+    def __init__(self, validators, converter):
         self.__value = None
         self.__valid = None
-        self.__validator = validator
+        self.__validators = validators
         self.__converter = converter
     
     def is_valid(self):
@@ -122,15 +147,17 @@ class ValidValue:
         return not self.__valid
 
     def set_value(self, value):
-        self.__valid = self.__validator(value)
-        if (self.__valid):
-            self.__value = self.__converter(value)
+        for validator in self.__validators:
+            pprint(validator)
+            if not validator(value):
+                print("not valid")
+                self.__valid = False
+                return
+        self.__valid = True
+        self.__value = self.__converter(value)
         
     def get_value(self):
         return self.__value
-
-
-
 
 
 def collect_user_answer(ux_element):
@@ -145,23 +172,18 @@ def collect_user_answer(ux_element):
                         f' {len(ux_element["options"])}: ')
     return(ux_element["options"][int(user_answer)-1])
 
+def is_numeric(value):
+    return value.isnumeric()
 
+def is_greater_or_equal(value1):
+    def is_greater_or_equal_inner(value2):
+        return int(value2) >= value1
+    return is_greater_or_equal_inner
 
-
-
-def validate_n_questions(n_questions):
-    """
-    This function validates the number of questions user input
-    """
-    if not n_questions.isnumeric():
-        return False
-    n_questions_int = int(n_questions)
-    if n_questions_int < game_settings["min_n_questions"]:
-        return False
-    if n_questions_int > game_settings["max_n_questions"]:
-        return False
-    return True
-
+def is_less_or_equal(value1):
+    def is_less_or_equal_inner(value2):
+        return int(value2) <= value1
+    return is_less_or_equal_inner
 
 print("\nWelcome to the Wonderful Words game!")
 print(f"\nThis game's dictionary is:"
