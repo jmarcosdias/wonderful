@@ -108,6 +108,8 @@ class GameSession:
                 }
             )
         print("Questions prepared.")
+        
+        input("\nPress enter to start the game session.")
 
     def play(self):
         """
@@ -162,7 +164,9 @@ def collect_user_answer(ux_element):
     Presents a question with the possible options for the user to answer
     and collects the user answer.
     """
+    print("\033[H\033[J") 
     print(f'\n{ux_element["question"]}')
+    print('-' * 80)
     for i in range(0, len(ux_element["options"])):
         print(f'{i+1} - {ux_element["options"][i]}')
 
@@ -173,7 +177,7 @@ def collect_user_answer(ux_element):
     )
     while answer_to_game_question.is_invalid():
         answer_to_game_question.set_value(input(
-            f'Please type a number between 1 and '
+            f'\nPlease type a number between 1 and'
             f' {len(ux_element["options"])}:\n')
         )
     return(ux_element["options"][answer_to_game_question.get_value()-1])
