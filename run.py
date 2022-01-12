@@ -1,5 +1,9 @@
-from game_settings import game_settings
+"""
+Wonderful Words Game
+"""
+
 import random
+from game_settings import game_settings
 
 
 def game_loop():
@@ -9,10 +13,10 @@ def game_loop():
         1) Collects the number of questions for the game session.
         2) Collects the number of options for each question.
         3) Initializes a game session.
-        4) Prepares the questions for the game session.
+        4) Prepares random questions and options for the game session.
         5) Plays the game session.
         6) Prints the summary of the game session.
-        7) Asks the user to play again or exit.
+        7) Asks the user to choose play again or exit.
     """
     play = True
     while play:
@@ -39,7 +43,7 @@ def game_loop():
         )
         while n_options.is_invalid():
             n_options.set_value(input(
-                f"\nHow many options would you like to have for each question?"
+                f"\nHow many options would you like to see for each question?"
                 "\nPlease type a number between "
                 f"{game_settings['min_n_options']} and "
                 f"{game_settings['max_n_options']}:\n"))
@@ -51,14 +55,14 @@ def game_loop():
         game_session.print_summary()
 
         play_again_or_exit = ValidValue(
-            [is_numeric, is_greater_or_equal(1), is_less_or_equal(2)], int
+            [in_1_p_2_e], lower
         )
         while play_again_or_exit.is_invalid():
             play_again_or_exit.set_value(input(
-                "\nPlease type 1 to play again or 2 to exit:\n")
+                "\nPlease type 1 or p to play again or type 2 or e to exit:\n")
             )
 
-        if play_again_or_exit.get_value() == 2:
+        if play_again_or_exit.get_value() in ('2', 'e'):
             play = False
 
 
@@ -204,5 +208,13 @@ def is_less_or_equal(value1):
     def is_less_or_equal_inner(value2):
         return int(value2) <= value1
     return is_less_or_equal_inner
+
+def in_1_p_2_e(value):
+    if value.lower() in ('1', 'p', '2', 'e'):
+        return True
+    return False
+
+def lower(value):
+    return value.lower()
 
 game_loop()
