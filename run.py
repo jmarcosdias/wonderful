@@ -33,7 +33,7 @@ def game_loop():
                 "session?\nPlease type a number between "
                 f"{game_settings['min_n_questions']} and "
                 f"{game_settings['max_n_questions']}:\n"))
-        
+
         print_header()
         n_options = ValidValue(
             [is_numeric,
@@ -76,6 +76,7 @@ class GameSession:
     def __init__(self, n_questions, n_options):
         self.__n_questions = n_questions
         self.__n_options = n_options
+        self.__n_correct_user_answers = 0
         self.__ux_list = []
         """
         The __ux_list is a list which is updated throughout a game session
@@ -123,23 +124,27 @@ class GameSession:
                 }
             )
         print("\nQuestions prepared.")
-        
         input("\nPress enter to start the game session.\n")
 
     def play(self):
         """
-        Runs an entire game session, asking the user all the questions, one
-        at a time. The relevant data for the game session is updated in this
-        object's instance
+        Runs the game, asking the user all the questions, one at a time.
+        The main objective here is to collect the user answer for each
+        question that is in each element of the `__ux_list` list.
         """
         for ux_element in self.__ux_list:
             ux_element["user_answer"] = collect_user_answer(ux_element)
+            if ux_element["user_answer"] == ux_element["correct_answer"]:
+                self.__n_correct_user_answers += 1
 
     def print_summary(self):
-        #print("\nSummary of your game session\n----------------------------")
-        #print(f"Number of questions: {self.__n_questions}")
-        #print(f"Number of correct answers: {self.__correct_answers}")
-        print(self.__ux_list)
+        """
+        Prints the summary of this game session
+        """
+        print_header()
+        print("\nSummary of your game session\n----------------------------")
+        print(f"Number of questions: {self.__n_questions}")
+        print(f"Correct answers: {self.__n_correct_user_answers}")
 
 
 class ValidValue:
