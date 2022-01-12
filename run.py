@@ -68,12 +68,21 @@ def game_loop():
 
 class GameSession:
     """
-    A game session with a certain fixed number of questions
+    A game session with a defined number of questions and a defined number
+    of options per question. Each of the `n_questions` questions is a
+    multiple-choice question with `n_options` possible answers. One and only
+    one answer is correct, per question.
     """
     def __init__(self, n_questions, n_options):
         self.__n_questions = n_questions
         self.__n_options = n_options
         self.__ux_list = []
+        """
+        The __ux_list is a list which is updated throughout a game session
+        with user experience data related to that game session. This includes
+        the questions, the corresponding options (i.e., the possible answers),
+        the correct answer for each question and the answer chosen by the user.
+        """
 
     def prepare_questions(self):
         """
@@ -85,26 +94,24 @@ class GameSession:
         print(f"\nI am preparing a set of {self.__n_questions} questions"
               f" for you with {self.__n_options} options per question ...")
 
-        # Creates a list of words to use in this session
-        words_list = random.sample(
-            list(game_settings['game_dictionary']), self.__n_questions *
-            self.__n_options
-        )
+        # Creates a list of random words to use in this game session
+        words_list = random.sample(list(game_settings['game_dictionary']),
+                                   self.__n_questions * self.__n_options)
 
-        # Creates a list of lists of words (each word is an option)
+        # Creates a list of `__n_questions` lists of `__n_options` words
         options_lists = [
             words_list[index: index + self.__n_options]
             for index in range(0, len(words_list),
                                self.__n_options)
         ]
 
-        # Iterates the options lists and fills the user experience list
-        # for this session, with everything we can at this moment
+        # Iterates throughout the elements that are in the options lists
+        # (each element is a list itself) and fills the user experience list
+        # with what is possible at this moment.
         for options_list in options_lists:
             correct_answer = options_list[0]
-            question = f'Question {1 + len(self.__ux_list)}: What is the word'\
-                       f' for ...\n\n"'\
-                       f'{game_settings["game_dictionary"][options_list[0]]}'\
+            question = f'What is the word for ...\n\n'\
+                       f'"{game_settings["game_dictionary"][options_list[0]]}'\
                        '" ?\n'
             random.shuffle(options_list)
             self.__ux_list.append(
@@ -117,7 +124,7 @@ class GameSession:
             )
         print("\nQuestions prepared.")
         
-        input("\nPress enter to start the game session.")
+        input("\nPress enter to start the game session.\n")
 
     def play(self):
         """
