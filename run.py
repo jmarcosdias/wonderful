@@ -16,6 +16,7 @@ def game_loop():
     """
     play = True
     while play:
+        print_header()
         n_questions = ValidValue(
             [is_numeric,
              is_greater_or_equal(game_settings['min_n_questions']),
@@ -24,11 +25,12 @@ def game_loop():
         )
         while n_questions.is_invalid():
             n_questions.set_value(input(
-                f"\nHow many questions would you like to see in your game "
+                f"\nHow many questions would you like to have in your game "
                 "session?\nPlease type a number between "
                 f"{game_settings['min_n_questions']} and "
                 f"{game_settings['max_n_questions']}:\n"))
         
+        print_header()
         n_options = ValidValue(
             [is_numeric,
              is_greater_or_equal(game_settings['min_n_options']),
@@ -37,7 +39,7 @@ def game_loop():
         )
         while n_options.is_invalid():
             n_options.set_value(input(
-                f"\nHow many options would you like to see for each question?"
+                f"\nHow many options would you like to have for each question?"
                 "\nPlease type a number between "
                 f"{game_settings['min_n_options']} and "
                 f"{game_settings['max_n_options']}:\n"))
@@ -75,7 +77,9 @@ class GameSession:
         a game session. This includes the questions, options available to
         choose for each question and the correct answer for each question.
         """
-        print("\nI am preparing the questions for your game session...")
+        print_header()
+        print(f"\nI am preparing a set of {self.__n_questions} questions"
+              f" for you with {self.__n_options} options per question ...")
 
         # Creates a list of words to use in this session
         words_list = random.sample(
@@ -95,9 +99,9 @@ class GameSession:
         for options_list in options_lists:
             correct_answer = options_list[0]
             question = f'Question {1 + len(self.__ux_list)}: What is the word'\
-                       f' for "'\
+                       f' for ...\n\n"'\
                        f'{game_settings["game_dictionary"][options_list[0]]}'\
-                       '" ?'
+                       '" ?\n'
             random.shuffle(options_list)
             self.__ux_list.append(
                 {
@@ -107,7 +111,7 @@ class GameSession:
                     "user_answer": None
                 }
             )
-        print("Questions prepared.")
+        print("\nQuestions prepared.")
         
         input("\nPress enter to start the game session.")
 
@@ -158,15 +162,21 @@ class ValidValue:
     def get_value(self):
         return self.__value
 
+def print_header():
+    print("\033[H\033[J")
+    print(80 * '-')
+    print(f"{5 * ' '}Wonderful Words game using the"
+          f" \"{game_settings['game_dictionary_name']}\" "
+          "dictionary")
+    print(80 * '-')
 
 def collect_user_answer(ux_element):
     """
     Presents a question with the possible options for the user to answer
     and collects the user answer.
     """
-    print("\033[H\033[J") 
+    print_header()
     print(f'\n{ux_element["question"]}')
-    print('-' * 80)
     for i in range(0, len(ux_element["options"])):
         print(f'{i+1} - {ux_element["options"][i]}')
 
@@ -195,7 +205,4 @@ def is_less_or_equal(value1):
         return int(value2) <= value1
     return is_less_or_equal_inner
 
-print("\nWelcome to the Wonderful Words game!")
-print(f"\nThis game's dictionary is:"
-      f" \"{game_settings['game_dictionary_name']}\".")
 game_loop()
