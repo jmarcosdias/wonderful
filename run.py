@@ -53,6 +53,7 @@ def game_loop():
         game_session.prepare_questions()
         game_session.play()
         game_session.print_summary()
+        game_session.print_details()
 
         play_again_or_exit = ValidValue(
             [in_1_p_2_e], lower
@@ -109,20 +110,21 @@ class GameSession:
         # Iterates throughout the elements that are in the options lists
         # (each element is a list itself) and fills the user experience list
         # with what is possible at this moment.
+        question_number = 1
         for options_list in options_lists:
             correct_answer = options_list[0]
-            question = f'What is the word for ...\n\n'\
-                       f'"{game_settings["game_dictionary"][options_list[0]]}'\
-                       '" ?\n'
+            question = f'{game_settings["game_dictionary"][options_list[0]]}'
             random.shuffle(options_list)
             self.__ux_list.append(
                 {
+                    "question_number": question_number,
                     "question": question,
                     "correct_answer": correct_answer,
                     "options": options_list,
                     "user_answer": None
                 }
             )
+            question_number += 1
         print("\nQuestions prepared.")
         input("\nPress enter to start the game session.\n")
 
@@ -145,7 +147,26 @@ class GameSession:
         print("\nSummary of your game session\n----------------------------")
         print(f"Number of questions: {self.__n_questions}")
         print(f"Correct answers: {self.__n_correct_user_answers}")
+        input("\nPress enter to continue.\n")
 
+    def print_details(self):
+        """
+        Prints the detailed information about the game session
+        """
+        for ux_element in self.__ux_list: 
+            print_header()
+            print("\nDetails of your game session"
+                  "\n----------------------------")
+            print(f'\nQuestion {ux_element["question_number"]} of'
+                  f' {self.__n_questions}: What is the word for "'
+                  f'{ux_element["question"]}" ?')
+            print(f'\nCorrect answer: {ux_element["correct_answer"]}')
+            thumbs_up_if_correct = 3 * "\U0001F44D" \
+                if ux_element["correct_answer"] == ux_element["user_answer"] \
+                else ""
+            print(f'\nYour answer: {ux_element["user_answer"]} '
+                  f'{thumbs_up_if_correct}')
+            input("\nPress enter to continue.\n")
 
 class ValidValue:
     """
@@ -179,7 +200,7 @@ class ValidValue:
         return self.__value
 
 def print_header():
-    print("\033[H\033[J")
+    print("\033[H\033[J")  # to clear the screen
     print(80 * '-')
     print(f"{5 * ' '}Wonderful Words game using the"
           f" \"{game_settings['game_dictionary_name']}\" "
