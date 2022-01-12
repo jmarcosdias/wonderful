@@ -1,5 +1,4 @@
 from game_settings import game_settings
-from pprint import pprint
 import random
 
 
@@ -28,7 +27,7 @@ def game_loop():
                 f"\nHow many questions would you like to see in your game "
                 "session?\nPlease type a number between "
                 f"{game_settings['min_n_questions']} and "
-                f"{game_settings['max_n_questions']}: "))
+                f"{game_settings['max_n_questions']}:\n"))
         
         n_options = ValidValue(
             [is_numeric,
@@ -41,7 +40,7 @@ def game_loop():
                 f"\nHow many options would you like to see for each question?"
                 "\nPlease type a number between "
                 f"{game_settings['min_n_options']} and "
-                f"{game_settings['max_n_options']}: "))
+                f"{game_settings['max_n_options']}:\n"))
 
         game_session = GameSession(n_questions.get_value(),
                                    n_options.get_value())
@@ -54,7 +53,7 @@ def game_loop():
         )
         while play_again_or_exit.is_invalid():
             play_again_or_exit.set_value(input(
-                "\nPlease type 1 to play again or 2 to exit: ")
+                "\nPlease type 1 to play again or 2 to exit:\n")
             )
 
         if play_again_or_exit.get_value() == 2:
@@ -123,7 +122,7 @@ class GameSession:
         #print("\nSummary of your game session\n----------------------------")
         #print(f"Number of questions: {self.__n_questions}")
         #print(f"Number of correct answers: {self.__correct_answers}")
-        pprint(self.__ux_list)
+        print(self.__ux_list)
 
 
 class ValidValue:
@@ -175,16 +174,9 @@ def collect_user_answer(ux_element):
     while answer_to_game_question.is_invalid():
         answer_to_game_question.set_value(input(
             f'Please type a number between 1 and '
-            f' {len(ux_element["options"])}: ')
+            f' {len(ux_element["options"])}:\n')
         )
     return(ux_element["options"][answer_to_game_question.get_value()-1])
-
-
-
-
-
-
-
 
 def is_numeric(value):
     return value.isnumeric()
