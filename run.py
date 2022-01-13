@@ -2,8 +2,8 @@
 Wonderful Words Game
 """
 
-# These are external functions that are used here to pick up a sample list of
-# words from the dictionary and shuffle a list of words.
+# These are external functions that are used to pick up a sample list of
+# words from the words dictionary and shuffle a list of words.
 from random import sample
 from random import shuffle
 
