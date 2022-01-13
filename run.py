@@ -176,15 +176,20 @@ class GameSession:
             print_header()
             print("\nDetails of your game session"
                   "\n----------------------------")
+
             print(f'\nQuestion {ux_element["question_number"]} of'
                   f' {self.__n_questions}: What is the word for "'
                   f'{ux_element["question"]}" ?')
+
             print(f'\nCorrect answer: {ux_element["correct_answer"]}')
-            thumbs_up_if_correct = 3 * "\U0001F44D" \
+
+            thumbs_up_if_correct = "\U0001F44D" \
                 if ux_element["correct_answer"] == ux_element["user_answer"] \
                 else ""
+
             print(f'\nYour answer: {ux_element["user_answer"]} '
                   f'{thumbs_up_if_correct}')
+
             if ux_element["question_number"] != self.__n_questions:
                 input("\nPress enter to continue.\n")
 
@@ -193,7 +198,7 @@ class ValidValue:
     """
     Class for a value that is considered valid or invalid.
     The constructor receives:
-        1) validators, which is an array of functions to validate the value.
+        1) validators, which is a list of functions to validate the value.
         2) converter, which is a function to convert the value in case it is
            valid.
     """
