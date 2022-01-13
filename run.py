@@ -243,7 +243,7 @@ def print_header():
     """
     Prints the first lines of the game screen
     """
-    # to clear the screen
+    # To clear the screen
     print("\033[H\033[J")
     print(80 * '-')
     print(f"{5 * ' '}Wonderful Words game using the"
@@ -317,10 +317,8 @@ def is_less_or_equal(value1):
 
 def in_play_exit(value):
     """
-    Returns a function that returns:
-      True, if the value passed in a call to that function is one
-            of the valid options to play again or exit.
-      False, otherwise.
+    Returns True if the `value` is one of the valid and converted
+    values to play again or exit. Otherwise, returns False.
     """
     if value.lower() in ('1', 'p', '2', 'e'):
         return True
@@ -329,11 +327,8 @@ def in_play_exit(value):
 
 def in_play_exit_detail(value):
     """
-    Returns a function that returns:
-      True, if the value passed in a call to that function is one
-            of the valid options to play again, print the details
-            or exit.
-      False, otherwise.
+    Returns True if the `value` is one of the valid and converted values
+    to play again, exit or print the details. Otherwise, returns False.
     """
     if value.lower() in ('1', 'p', '2', 'e', '3', 'd'):
         return True
