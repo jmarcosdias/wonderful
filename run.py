@@ -172,7 +172,7 @@ class GameSession:
         """
         Prints the detailed information about the game session
         """
-        for ux_element in self.__ux_list: 
+        for ux_element in self.__ux_list:
             print_header()
             print("\nDetails of your game session"
                   "\n----------------------------")
@@ -240,6 +240,9 @@ class ValidValue:
 
 
 def print_header():
+    """
+    Prints the first lines of the game screen
+    """
     # to clear the screen
     print("\033[H\033[J")
     print(80 * '-')
@@ -251,19 +254,21 @@ def print_header():
 
 def collect_user_answer(ux_element, n_questions):
     """
-    Presents a question with the possible options for the user to answer
-    and collects the user answer.
+    Presents a question with the possible options for the user to answer,
+    collects a valid user answer and returns it.
     """
     print_header()
     print(f'\nQuestion {ux_element["question_number"]} of {n_questions}:')
+
     print('\nWhat is the word for ...')
     print(f'\n"{ux_element["question"]}" ?\n')
+
     for i in range(0, len(ux_element["options"])):
         print(f'{i+1} - {ux_element["options"][i]}')
 
     answer_to_game_question = ValidValue(
             [is_numeric,
-             is_greater_or_equal(1), 
+             is_greater_or_equal(1),
              is_less_or_equal(len(ux_element["options"]))], int
     )
     while answer_to_game_question.is_invalid():
@@ -271,39 +276,83 @@ def collect_user_answer(ux_element, n_questions):
             f'\nPlease type a number between 1 and'
             f' {len(ux_element["options"])}:\n')
         )
-    return(ux_element["options"][answer_to_game_question.get_value()-1])
+    return ux_element["options"][answer_to_game_question.get_value()-1]
+
+
+# The below functions are passed inside a list in the first argument of the
+# ValidValue constructor. They are used by the set_value instance method of
+# the ValidValue class, to validate an instance of ValidValue.
 
 
 def is_numeric(value):
     """
-    ss 
+    Returns True if the `value` is numeric. Otherwise returns False.
     """
     return value.isnumeric()
 
+
 def is_greater_or_equal(value1):
+    """
+    Returns a function that returns:
+      True, if the value passed in a call to that function is greater
+            or equal `value1`.
+      False, otherwise.
+    """
     def is_greater_or_equal_inner(value2):
         return int(value2) >= value1
     return is_greater_or_equal_inner
 
+
 def is_less_or_equal(value1):
+    """
+    Returns a function that returns:
+      True, if the value passed in a call to that function is less
+            or equal `value1`.
+      False, otherwise.
+    """
     def is_less_or_equal_inner(value2):
         return int(value2) <= value1
     return is_less_or_equal_inner
 
+
 def in_play_exit(value):
+    """
+    Returns a function that returns:
+      True, if the value passed in a call to that function is one
+            of the valid options to play again or exit.
+      False, otherwise.
+    """
     if value.lower() in ('1', 'p', '2', 'e'):
         return True
     return False
 
+
 def in_play_exit_detail(value):
+    """
+    Returns a function that returns:
+      True, if the value passed in a call to that function is one
+            of the valid options to play again, print the details
+            or exit.
+      False, otherwise.
+    """
     if value.lower() in ('1', 'p', '2', 'e', '3', 'd'):
         return True
     return False
 
+
+# The below function is passed in the second argument of the ValidValue
+# constructor. It is used by the set_value instance method of the
+# ValidValue class, to convert a valid value.
+
+
 def lower(value):
     """
-    sd
+    Returns the `value` converted to lowercase.
     """
     return value.lower()
+
+
+# Here is where the program starts
+
 
 game_loop()
