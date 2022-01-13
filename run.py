@@ -219,18 +219,22 @@ def print_header():
           "dictionary")
     print(80 * '-')
 
+
 def collect_user_answer(ux_element):
     """
     Presents a question with the possible options for the user to answer
     and collects the user answer.
     """
     print_header()
-    print(f'\n{ux_element["question"]}')
+    n_questions = len(ux_element)
+    print(f'\nQuestion {ux_element["question_number"]} of {n_questions}:')
+    print('\nWhat is the word for ...')
+    print(f'"{ux_element["question"]}" ?\n')
     for i in range(0, len(ux_element["options"])):
         print(f'{i+1} - {ux_element["options"][i]}')
 
     answer_to_game_question = ValidValue(
-            [is_numeric, 
+            [is_numeric,
              is_greater_or_equal(1), 
              is_less_or_equal(len(ux_element["options"]))], int
     )
@@ -240,6 +244,7 @@ def collect_user_answer(ux_element):
             f' {len(ux_element["options"])}:\n')
         )
     return(ux_element["options"][answer_to_game_question.get_value()-1])
+
 
 def is_numeric(value):
     return value.isnumeric()
