@@ -60,29 +60,29 @@ def game_loop():
         game_session.play()
         game_session.print_summary()
 
-        next_step = ValidValue(
-            [in_1_p_2_e_3_d], lower
+        play_exit_detail = ValidValue(
+            [in_play_exit_detail], lower
         )
-        while next_step.is_invalid():
-            next_step.set_value(input(
+        while play_exit_detail.is_invalid():
+            play_exit_detail.set_value(input(
                 "\nPlease type:\n1 or p to play again\n2 or e to exit\n"
                 "3 or d to see details\n")
             )
 
-        if next_step.get_value() in ('2', 'e'):
+        if play_exit_detail.get_value() in ('2', 'e'):
             play = False
 
-        elif next_step.get_value() in ('3', 'd'):
+        elif play_exit_detail.get_value() in ('3', 'd'):
             game_session.print_details()
-            play_again_or_exit = ValidValue(
-                [in_1_p_2_e], lower
+            play_exit = ValidValue(
+                [in_play_exit], lower
             )
-            while play_again_or_exit.is_invalid():
-                play_again_or_exit.set_value(input(
+            while play_exit.is_invalid():
+                play_exit.set_value(input(
                     "\nPlease type:\n1 or p to play again\n2 or e to exit\n")
                 )
 
-            if play_again_or_exit.get_value() in ('2', 'e'):
+            if play_exit.get_value() in ('2', 'e'):
                 play = False
 
 
@@ -290,12 +290,12 @@ def is_less_or_equal(value1):
         return int(value2) <= value1
     return is_less_or_equal_inner
 
-def in_1_p_2_e(value): # function names not so good. in_play_exit
+def in_play_exit(value):
     if value.lower() in ('1', 'p', '2', 'e'):
         return True
     return False
 
-def in_1_p_2_e_3_d(value): # function names not so good. in_play_exit_detail
+def in_play_exit_detail(value):
     if value.lower() in ('1', 'p', '2', 'e', '3', 'd'):
         return True
     return False
