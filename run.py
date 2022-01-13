@@ -216,7 +216,7 @@ class ValidValue:
 
     def is_invalid(self):
         """
-        Returns True if this invalid is valid. Otherwise returns False.
+        Returns True if this invalid is invalid. Otherwise returns False.
         """
         return not self.__valid
 
@@ -234,7 +234,7 @@ class ValidValue:
 
     def get_value(self):
         """
-        Returns the valid for this object
+        Returns the valid value for this object
         """
         return self.__value
 
