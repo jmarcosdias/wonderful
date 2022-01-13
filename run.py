@@ -208,21 +208,9 @@ class ValidValue:
         self.__validators = validators
         self.__converter = converter
 
-    def is_valid(self):
-        """
-        Returns True if this value is valid. Otherwise returns False.
-        """
-        return self.__valid
-
-    def is_invalid(self):
-        """
-        Returns True if this invalid is invalid. Otherwise returns False.
-        """
-        return not self.__valid
-
     def set_value(self, value):
         """
-        Sets the value for this object and verifies if it is a valid value.
+        Sets the value for this object and defines if it is a valid value.
         """
         for validator in self.__validators:
             if not validator(value):
@@ -232,9 +220,21 @@ class ValidValue:
         self.__value = self.__converter(value)
         self.__valid = True
 
+    def is_valid(self):
+        """
+        Returns True if this value is valid. Otherwise returns False.
+        """
+        return self.__valid
+
+    def is_invalid(self):
+        """
+        Returns True if this value is invalid. Otherwise returns False.
+        """
+        return not self.__valid
+
     def get_value(self):
         """
-        Returns the valid value for this object
+        Returns the value for this object
         """
         return self.__value
 
