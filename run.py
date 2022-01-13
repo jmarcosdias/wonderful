@@ -147,7 +147,7 @@ class GameSession:
         question that is in each element of the `__ux_list` list.
         """
         for ux_element in self.__ux_list:
-            ux_element["user_answer"] = collect_user_answer(ux_element)
+            ux_element["user_answer"] = collect_user_answer(ux_element, self.__n_questions)
             if ux_element["user_answer"] == ux_element["correct_answer"]:
                 self.__n_correct_user_answers += 1
 
@@ -220,16 +220,15 @@ def print_header():
     print(80 * '-')
 
 
-def collect_user_answer(ux_element):
+def collect_user_answer(ux_element, n_questions):
     """
     Presents a question with the possible options for the user to answer
     and collects the user answer.
     """
     print_header()
-    n_questions = len(ux_element)
     print(f'\nQuestion {ux_element["question_number"]} of {n_questions}:')
     print('\nWhat is the word for ...')
-    print(f'"{ux_element["question"]}" ?\n')
+    print(f'\n"{ux_element["question"]}" ?\n')
     for i in range(0, len(ux_element["options"])):
         print(f'{i+1} - {ux_element["options"][i]}')
 
