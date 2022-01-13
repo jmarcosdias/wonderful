@@ -2,7 +2,12 @@
 Wonderful Words Game
 """
 
-import random
+# These are external functions that are used here to pick up a sample list of
+# words from the dictionary and shuffle a list of words.
+from random import sample
+from random import shuffle
+
+# This is a file containing settings for this Wonderful Words Game.
 from game_settings import game_settings
 
 
@@ -16,7 +21,8 @@ def game_loop():
         4) Prepares random questions and options for the game session.
         5) Plays the game session.
         6) Prints the summary of the game session.
-        7) Asks the user to choose play again or exit.
+        7) Prints the detail of the game session in case the user wants to see.
+        8) Asks the user to choose play again or exit.
     """
     play = True
     while play:
@@ -79,6 +85,7 @@ def game_loop():
             if play_again_or_exit.get_value() in ('2', 'e'):
                 play = False
 
+
 class GameSession:
     """
     A game session with a defined number of questions and a defined number
@@ -109,8 +116,8 @@ class GameSession:
               f" for you with {self.__n_options} options per question ...")
 
         # Creates a list of random words to use in this game session
-        words_list = random.sample(list(game_settings['game_dictionary']),
-                                   self.__n_questions * self.__n_options)
+        words_list = sample(list(game_settings['game_dictionary']),
+                            self.__n_questions * self.__n_options)
 
         # Creates a list of `__n_questions` lists of `__n_options` words
         options_lists = [
@@ -126,7 +133,7 @@ class GameSession:
         for options_list in options_lists:
             correct_answer = options_list[0]
             question = f'{game_settings["game_dictionary"][options_list[0]]}'
-            random.shuffle(options_list)
+            shuffle(options_list)
             self.__ux_list.append(
                 {
                     "question_number": question_number,
@@ -147,7 +154,8 @@ class GameSession:
         question that is in each element of the `__ux_list` list.
         """
         for ux_element in self.__ux_list:
-            ux_element["user_answer"] = collect_user_answer(ux_element, self.__n_questions)
+            ux_element["user_answer"] = collect_user_answer(ux_element,
+                                                            self.__n_questions)
             if ux_element["user_answer"] == ux_element["correct_answer"]:
                 self.__n_correct_user_answers += 1
 
@@ -180,10 +188,11 @@ class GameSession:
             if ux_element["question_number"] != self.__n_questions:
                 input("\nPress enter to continue.\n")
 
+
 class ValidValue:
     """
     Class for a value that is considered valid or invalid.
-    The constructor receives: 
+    The constructor receives:
         1) validators, which is an array of functions to validate the value.
         2) converter, which is a function to convert the value in case it is
            valid.
@@ -193,26 +202,41 @@ class ValidValue:
         self.__valid = None
         self.__validators = validators
         self.__converter = converter
-    
+
     def is_valid(self):
+        """
+        Returns True if this value is valid. Otherwise returns False.
+        """
         return self.__valid
 
     def is_invalid(self):
+        """
+        Returns True if this invalid is valid. Otherwise returns False.
+        """
         return not self.__valid
 
     def set_value(self, value):
+        """
+        Sets the value for this object and verifies if it is a valid value.
+        """
         for validator in self.__validators:
             if not validator(value):
+                self.__value = value
                 self.__valid = False
                 return
-        self.__valid = True
         self.__value = self.__converter(value)
-        
+        self.__valid = True
+
     def get_value(self):
+        """
+        Returns the valid for this object
+        """
         return self.__value
 
+
 def print_header():
-    print("\033[H\033[J")  # to clear the screen
+    # to clear the screen
+    print("\033[H\033[J")
     print(80 * '-')
     print(f"{5 * ' '}Wonderful Words game using the"
           f" \"{game_settings['game_dictionary_name']}\" "
@@ -246,6 +270,9 @@ def collect_user_answer(ux_element, n_questions):
 
 
 def is_numeric(value):
+    """
+    ss 
+    """
     return value.isnumeric()
 
 def is_greater_or_equal(value1):
@@ -258,17 +285,20 @@ def is_less_or_equal(value1):
         return int(value2) <= value1
     return is_less_or_equal_inner
 
-def in_1_p_2_e(value):
+def in_1_p_2_e(value): # function names not so good. in_play_exit
     if value.lower() in ('1', 'p', '2', 'e'):
         return True
     return False
 
-def in_1_p_2_e_3_d(value):
+def in_1_p_2_e_3_d(value): # function names not so good. in_play_exit_detail
     if value.lower() in ('1', 'p', '2', 'e', '3', 'd'):
         return True
     return False
 
 def lower(value):
+    """
+    sd
+    """
     return value.lower()
 
 game_loop()
