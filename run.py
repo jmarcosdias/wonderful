@@ -53,19 +53,31 @@ def game_loop():
         game_session.prepare_questions()
         game_session.play()
         game_session.print_summary()
-        game_session.print_details()
 
-        play_again_or_exit = ValidValue(
-            [in_1_p_2_e], lower
+        next_step = ValidValue(
+            [in_1_p_2_e_3_d], lower
         )
-        while play_again_or_exit.is_invalid():
-            play_again_or_exit.set_value(input(
-                "\nPlease type 1 or p to play again or type 2 or e to exit:\n")
+        while next_step.is_invalid():
+            next_step.set_value(input(
+                "\nPlease type:\n1 or p to play again\n2 or e to exit\n"
+                "3 or d to see details\n")
             )
 
-        if play_again_or_exit.get_value() in ('2', 'e'):
+        if next_step.get_value() in ('2', 'e'):
             play = False
 
+        elif next_step.get_value() in ('3', 'd'):
+            game_session.print_details()
+            play_again_or_exit = ValidValue(
+                [in_1_p_2_e], lower
+            )
+            while play_again_or_exit.is_invalid():
+                play_again_or_exit.set_value(input(
+                    "\nPlease type:\n1 or p to play again\n2 or e to exit\n")
+                )
+
+            if play_again_or_exit.get_value() in ('2', 'e'):
+                play = False
 
 class GameSession:
     """
@@ -147,7 +159,6 @@ class GameSession:
         print("\nSummary of your game session\n----------------------------")
         print(f"Number of questions: {self.__n_questions}")
         print(f"Correct answers: {self.__n_correct_user_answers}")
-        input("\nPress enter to continue.\n")
 
     def print_details(self):
         """
@@ -166,7 +177,8 @@ class GameSession:
                 else ""
             print(f'\nYour answer: {ux_element["user_answer"]} '
                   f'{thumbs_up_if_correct}')
-            input("\nPress enter to continue.\n")
+            if ux_element["question_number"] != self.__n_questions:
+                input("\nPress enter to continue.\n")
 
 class ValidValue:
     """
@@ -244,6 +256,11 @@ def is_less_or_equal(value1):
 
 def in_1_p_2_e(value):
     if value.lower() in ('1', 'p', '2', 'e'):
+        return True
+    return False
+
+def in_1_p_2_e_3_d(value):
+    if value.lower() in ('1', 'p', '2', 'e', '3', 'd'):
         return True
     return False
 
