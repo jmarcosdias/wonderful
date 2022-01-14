@@ -365,8 +365,8 @@ def print_welcome_message():
     print('\nAt the end, you will see a summary with the number of correct'
           ' answers you have  given.')
     print('\nAfter that, if you want you can see the details of your game'
-          ' session with each question again, the correct answer and your '
-          'answer.')
+          ' session with each  question again, the correct answer and your'
+          ' answer.')
     input("\nPress enter to start configuring your game session.\n")
 
 
