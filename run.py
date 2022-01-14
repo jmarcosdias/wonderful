@@ -347,7 +347,40 @@ def lower(value):
     return value.lower()
 
 
+def print_welcome_message():
+    """
+    This is the introductory screen
+    """
+    print_header()
+    print('\nWelcome to the Wonderful Words game!')
+    print('\nThis is a game with multiple-choice questions, based on a '
+          'dictionary.')
+    print('\nYou will select how many questions and how many options for each'
+          ' question would you like.')
+    print('\nAfter that, the questions and correspondent options will be'
+          ' presented to you. One question at a time.')
+    smiley_face = '\U0001F60A'
+    print('\nYou just need to choose the right answer for each question.'
+          f'{smiley_face}')
+    print('\nAt the end, you will see a summary with the number of correct'
+          ' answers you have given.')
+    print('\nAfter that, if you want you can also see the details with each'
+          ' question again, the correct answer and your answer.')
+    input("\nPress enter to start configuring your game session.\n")
+
+
+def print_final_message():
+    """
+    This is the final screen
+    """
+    print_header()
+    print('\nThank you for playing.')
+    print('\nIf you would like to play again, please press the'
+          ' "run program" button above.')
+
 # Here is where the program starts
 
 
+print_welcome_message()
 game_loop()
+print_final_message()
