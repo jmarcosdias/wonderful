@@ -358,14 +358,15 @@ def print_welcome_message():
     print('\nYou will select how many questions and how many options for each'
           ' question would you like.')
     print('\nAfter that, the questions and correspondent options will be'
-          ' presented to you. One question at a time.')
+          ' presented to you.\nOne question at a time.')
     smiley_face = '\U0001F60A'
     print('\nYou just need to choose the right answer for each question.'
           f'{smiley_face}')
     print('\nAt the end, you will see a summary with the number of correct'
-          ' answers you have given.')
-    print('\nAfter that, if you want you can also see the details with each'
-          ' question again, the correct answer and your answer.')
+          ' answers you have  given.')
+    print('\nAfter that, if you want you can see the details of your game'
+          ' session with each question again, the correct answer and your '
+          'answer.')
     input("\nPress enter to start configuring your game session.\n")
 
 
