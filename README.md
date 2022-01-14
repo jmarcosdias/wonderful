@@ -11,3 +11,5 @@ The <em>Wonderful Words Game</em> is targeted to adults who are words lovers and
 ## Owner's Goal
 
 The goal of the <em>Wonderful Words Game</em> is to entertain people and foster the learning of new words. 
+
+![Mockup Image](assets/readme-files/mockup.png)
