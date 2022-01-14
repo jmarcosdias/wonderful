@@ -145,7 +145,7 @@ class GameSession:
             )
             question_number += 1
         print("\nQuestions prepared.")
-        input("\nPress enter to start the game session.\n")
+        input("\nPlease press enter to start the game session.\n")
 
     def play(self):
         """
@@ -191,7 +191,7 @@ class GameSession:
                   f'{thumbs_up_if_correct}')
 
             if ux_element["question_number"] != self.__n_questions:
-                input("\nPress enter to continue.\n")
+                input("\nPlease press enter to continue.\n")
 
 
 class ValidValue:
@@ -367,7 +367,7 @@ def print_welcome_message():
     print('\nAfter that, if you want you can see the details of your game'
           ' session with each  question again, the correct answer and your'
           ' answer.')
-    input("\nPress enter to start configuring your game session.\n")
+    input("\nPlease press enter to start configuring your game session.\n")
 
 
 def print_final_message():
