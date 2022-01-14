@@ -377,7 +377,7 @@ def print_final_message():
     print_header()
     print('\nThank you for playing.')
     print('\nIf you would like to play again, please press the'
-          ' "run program" button above.')
+          ' "RUN PROGRAM" button above.')
 
 # Here is where the program starts
 
