@@ -348,7 +348,7 @@ def lower(value):
     return value.lower()
 
 
-def print_welcome_message():
+def print_starting_screen():
     """
     This is the introductory screen
     """
@@ -371,18 +371,16 @@ def print_welcome_message():
     input("\nPlease press enter to start configuring your game session.\n")
 
 
-def print_final_message():
+def print_final_screen():
     """
-    This is the final screen
+    Prints a final message thanking and explaining how to play again
     """
     print_header()
     print('\nThank you for playing.')
     print('\nIf you would like to play again, please press the'
           ' "RUN PROGRAM" button above.')
 
-# Here is where the program starts
 
-
-print_welcome_message()
+print_starting_screen()
 game_loop()
-print_final_message()
+print_final_screen()
