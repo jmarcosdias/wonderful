@@ -26,7 +26,7 @@ Below is a screenshot where a question number 7 is presented to the user along w
 
 After the last question, a summary of the game session is presented. At this point, the user can choose to play again, exit or see the details.
 
-![Game Session Summary](assets/doc-images/summary-game-session.png)
+![Game Session Summary](assets/doc-images/summary-of-the-game-session-1.png)
 
 The details consist in presenting each question again, along with the correct answer and the user's answer.
 
@@ -115,3 +115,21 @@ Below is an example of possible contents of `__ux_list` at the end of a game ses
             'user_answer': 'cybersquatting'
         }
     ]
+
+- Summary of the game session
+
+The summary is presented after the last question.
+
+![Game Session Summary](assets/doc-images/summary-of-the-game-session-1.png)
+
+- Details of the game session
+
+If the user selects the details option, after the session summary, the details are presented. 
+
+The details consist in presenting all the questions again, one at a time, with the correct answer and the user answer.
+
+![Game Session Summary](assets/doc-images/details-of-the-game-session-1.png)
+
+After the last question presented in the details, the user can choose to play again or exit.
+
+![Game Session Summary](assets/doc-images/details-of-the-game-session-2.png)
