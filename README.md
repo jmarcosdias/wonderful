@@ -133,3 +133,68 @@ The details consist in presenting all the questions again, one at a time, with t
 After the last question presented in the details, the user can choose to play again or exit.
 
 ![Game Session Summary](assets/doc-images/details-of-the-game-session-2.png)
+
+### Future Features
+
+In a future release, the following feature is planned to be implemented.
+
+- Ability to choose the dictionary
+
+Currently, only one dictionary is used along this game. The user has no option to choose the dictionary.
+
+In the current version, there is only the "Weird And Wonderful Words" dictionary, which is great, but is not good for all purposes. For example this dictionary is not good for beginners or for children.
+
+The current structure of the game settings is as follows.
+
+    game_settings = {
+        "game_dictionary_name": "Weird And Wonderful Words",
+        "min_n_questions":1,
+        "max_n_questions":10,
+        "min_n_options":2,
+        "max_n_options":6,
+        "game_dictionary": {
+            "word-1": "description-1",
+            "word-2": "description-2",
+            ...
+            "word-n": "description-n"
+        }
+    }
+
+A future version of this game is planned to accomodate different dictionaries.
+
+In this future version, the structure of the game settings will be as shown below.
+
+    game_settings = {
+       "min_n_questions":1,
+       "max_n_questions":10,
+       "min_n_options":2,
+       "max_n_options":6,
+       "dictionaries":[
+          {
+             "dictionary_name":"Weird And Wonderful Words",
+             "game_dictionary":{
+                "word-1":"description-1",
+                "word-2":"description-2",
+                "word-n":"description-n"
+             }
+          },
+          {
+             "dictionary_name":"Basic English Dictionary",
+             "game_dictionary":{
+                "word-1":"description-1",
+                "word-2":"description-2",
+                "word-n":"description-n"
+             }
+          },
+          {
+             "dictionary_name":"Children English Dictionary",
+             "game_dictionary":{
+                "word-1":"description-1",
+                "word-2":"description-2",
+                "word-n":"description-n"
+             }
+          }
+       ]
+    }
+
+By using the above structure, it will be possible to adapt the python code for this game so that the user will be able to choose the dictionary at runtime.
