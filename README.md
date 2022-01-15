@@ -198,3 +198,55 @@ In this future version, the structure of the game settings will be as shown belo
     }
 
 By using the above structure, it will be possible to adapt the python code for this game so that the user will be able to choose the dictionary at runtime.
+
+## Testing 
+
+## Validate Correctness of the Answers
+
+This section is to validate the correctness of each answer in the game 
+
+Based on the https://www.lexico.com/explore/weird-and-wonderful-words dictionary, a series of game sessions was played and all the answers were validated against the dictionary. No errors were found.
+
+Below are some examples of these tests that were conducted with different numbers of questions and different numbers of options.
+
+### Testing Example 1
+
+Correct answer is 'decubitus'.
+
+![Correctness Test Example 1a](assets/doc-images/correctness-testing-exampe-1a.png)
+
+![Correctness Test Example 1b](assets/doc-images/correctness-testing-exampe-1b.png)
+
+![Correctness Test Example 1c](assets/doc-images/correctness-testing-exampe-1c.png)
+
+Result: Success
+
+### Testing Example 2
+
+Correct answer is 'afreet'.
+
+![Correctness Test Example 2a](assets/doc-images/correctness-testing-exampe-2a.png)
+
+![Correctness Test Example 2b](assets/doc-images/correctness-testing-exampe-2b.png)
+
+![Correctness Test Example 2c](assets/doc-images/correctness-testing-exampe-2c.png)
+
+Result: Success
+
+### Testing Example 3
+
+Correct answer is 'higgler'.
+
+![Correctness Test Example 3a](assets/doc-images/correctness-testing-exampe-3a.png)
+
+![Correctness Test Example 3b](assets/doc-images/correctness-testing-exampe-3b.png)
+
+![Correctness Test Example 3c](assets/doc-images/correctness-testing-exampe-3c.png)
+
+Result: Success
+
+## Validate Summary of the Game
+
+## Validate User Input
+
+These tests are to ensure that a distracted or misbehaving user will not break the game.
