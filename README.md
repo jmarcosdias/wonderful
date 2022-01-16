@@ -503,7 +503,7 @@ Result: Success.
 
 ### T4 Validator Testing
 
-The Python code for run.py and game_settings.py has been submitted to http://pep8online.com with the following results.
+The Python code for run.py and game_settings.py was submitted to http://pep8online.com with the following results.
 
 #### T4.1 run.py
 
@@ -533,9 +533,7 @@ There are no unfixed bugs.
 
 ## Deployment
 
-The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
-
-<a href="https://id.heroku.com/" target="_blank">Heroku</a> was used to deploy the application.
+<a href="https://id.heroku.com/" target="_blank">Heroku</a> was used to deploy the <em>Wonderful Words Game</em>. The steps used to do it are explained below:
 
 1. Make sure the requirements.txt file is correct. 
    * This was done by running: `pip3 freeze > requirements.txt` in the GitPod terminal. No requirements were identified, no requirements were written to the requirements.txt file.
@@ -550,7 +548,7 @@ The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
 10. In the "Deployment method" section, click "Deploy" and then click "GitHub".
 11. In the "Connect to GitHub" section, search the "wonderful" repository (jmarcosdias/wonderful).
 12. Click "Connect", next to the repository name (jmarcosdias/wonderful).
-13. In the "Manual deploy" section, click "Deploy Branch", to deploy from the main branch.
+13. In the "Manual deploy" section, make sure the main branch is selected and then click "Deploy Branch", to deploy from the main branch.
 14. Wait for the deploy to finish. You will see the build log in the "Manual deploy" section.
 15. Click the "View" button in the "Manual deploy" section or click "Open app" at the top of the page. This is for you to confirm that the app is deployed.
 16. In the "Automatic deploys" section, click "Enable Automatic Deploys".
