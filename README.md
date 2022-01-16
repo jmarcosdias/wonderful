@@ -342,3 +342,29 @@ Result: Sucess.
 
 Result: Sucess.
 
+## T4 - Validator Testing
+
+Python code for run.py and game_settings.py was submitted to http://pep8online.com with the following results.
+
+### T4.1 - run.py
+
+Expected Result: All right
+
+Result: All right
+
+![Validator Testing 1](assets/doc-images/pep8-validator-result-1.png)
+
+### T4.2 - game_settings.py
+
+Expected Result: All right
+
+Result: no newline at end of file
+
+![Validator Testing 2a](assets/doc-images/pep8-validator-result-2a.png)
+
+The game_settings.py file was updated and submitted again to the pep8 validator and this time the result was 'All right'.
+
+![Validator Testing 2a](assets/doc-images/pep8-validator-result-2b.png)
+
+
+
