@@ -1,5 +1,21 @@
 # Wonderful Words Game
 
+## Table of Contents
+
+1. [User's Goal](#users-goal)
+2. [Target Audience](#target-audience)
+3. [Owner's Goal](#owners-goal)
+4. [Description of the Game](#description-of-the-game)
+5. [Features](#features)
+    1. [Existing Features](#existing-features)
+    2. [Future Features](#future-features)
+7. [Testing](#testing)
+   1. [T1 Validate Questions, Answers and Evaluation](#t1-validate-questions-answers-and-evaluation)
+   2. [T2 Validate Summary of the Game](#t2-validate-summary-of-the-game)
+   3. [T3 Validate User Input](#t3-validate-user-input)
+   4. [T4 Validator Testing](#t4-validator-testing)
+   5. [T5 Unfixed bugs](#t5-unfixed-bugs)
+
 ## User's Goal
 
 The users of the <em>Wonderful Words Game</em> want to play an online multiple-choice quiz game that will enrich their vocabulary with unusual words.
@@ -203,8 +219,8 @@ By using the above structure, it will be possible to adapt the python code for t
 
 In this section, a game with X questions and Y options per question is referred to as an X/Y game.
 
-## T1 - Validate Questions, Answers and Answers' Evaluation
-The tests in this section are to validate the correctness of questions and options presented to the user and the correctness of the evaluation of the answers.
+### T1 Validate Questions, Answers and Evaluation
+The tests in this section are to validate the correctness of questions and possible answers presented to the user and the correctness of the evaluation of the answers.
 
 Test Conditions:
 1. All questions and options must be taken from the game dictionary. 
@@ -216,7 +232,7 @@ Based on the https://www.lexico.com/explore/weird-and-wonderful-words dictionary
 
 Below are some examples of the tests that were conducted, with different numbers of questions and different numbers of options.
 
-### T1.1 - Question in a 10/3 game
+#### T1.1 Question in a 10/3 game
 
 User selects the correct answer. Conditions 1, 2 and 3 must be satisfied.
 
@@ -232,7 +248,7 @@ Result: Success.
 
 Details: User selected correct answer. Conditions 1, 2 and 3 were verified.
 
-### T1.2 - Question in a 10/6 game
+#### T1.2 Question in a 10/6 game
 
 User selects an incorrect answer. Conditions 1, 2 and 4 must be satisfied.
 
@@ -248,7 +264,7 @@ Result: Success.
 
 Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
 
-### T1.3 - Question in a 1/1 game
+#### T1.3 Question in a 1/1 game
 
 User selects an incorrect answer. Conditions 1, 2 and 4 must be satisfied.
 
@@ -264,9 +280,9 @@ Result: Success.
 
 Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
 
-## T2 - Validate Summary of the Game
+### T2 Validate Summary of the Game
 
-### T2.1 - Testing a 10/6 game 
+#### T2.1 Testing a 10/6 game 
 
 First 3 questions with correct answer. Remaining questions with wrong answer and choosing different numbers along the session.
 Expected result: 3 correct questions.
@@ -306,47 +322,57 @@ Expected result: 3 correct questions.
 Result: Success.
 Details: the summary of the game presents 3 as the number of correct answers.
 
-## T3 - Validate User Input
+### T3 Validate User Input
 
 These tests are to ensure that a distracted or misbehaving user will not break the game.
 
 Here are some examples of what has been validated to ensure the program is correct in terms of input validation. For all the test cases below, several tests were conducted. The screenshots are only examples of the results.
 
-### T3.1 - Expected Result: program must accept only 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10.
+#### T3.1 User Input How Many Questions
+
+Expected Result: program must accept only 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10.
 
 ![User input testing 1](assets/doc-images/user-input-testing-1.png)
 
 Result: Sucess.
 
-### T3.2 - Expected Result: program must accept only 2, 3, 4, 5 or 6.
+#### T3.2 User Input How Many Options
+
+Expected Result: program must accept only 2, 3, 4, 5 or 6.
 
 ![User input testing 1](assets/doc-images/user-input-testing-2.png)
 
 Result: Sucess.
 
-### T3.3 - Expected Result: program must accept only 1, 2 or 3.
+#### T3.3 User Input Answer a Question
+
+Expected Result: program must accept only 1, 2 or 3 in a X/3 game.
 
 ![User input testing 1](assets/doc-images/user-input-testing-3.png)
 
 Result: Sucess.
 
-### T3.4 - Expected Result: program must accept only 1, p, P, 2, e, E, 3, d or D.
+#### T3.4 User Input Play, Exit or Details
+
+Expected Result: program must accept only 1, p, P, 2, e, E, 3, d or D.
 
 ![User input testing 1](assets/doc-images/user-input-testing-4.png)
 
 Result: Sucess.
 
-### T3.5 - Expected Result: program must accept only 1, p, P, 2, e or E.
+#### T3.5 User Input Play or Exit
+
+Expected Result: program must accept only 1, p, P, 2, e or E.
 
 ![User input testing 1](assets/doc-images/user-input-testing-5.png)
 
 Result: Sucess.
 
-## T4 - Validator Testing
+### T4 Validator Testing
 
 Python code for run.py and game_settings.py was submitted to http://pep8online.com with the following results.
 
-### T4.1 - run.py
+#### T4.1 run.py
 
 Expected Result: All right
 
@@ -354,7 +380,7 @@ Result: All right
 
 ![Validator Testing 1](assets/doc-images/pep8-validator-result-1.png)
 
-### T4.2 - game_settings.py
+#### T4.2 game_settings.py
 
 Expected Result: All right
 
@@ -366,7 +392,7 @@ The game_settings.py file was updated and submitted again to the pep8 validator 
 
 ![Validator Testing 2a](assets/doc-images/pep8-validator-result-2b.png)
 
-## T5 - Unfixed bugs
+### T5 Unfixed bugs
 
 There are no unfixed bugs.
 
