@@ -30,9 +30,13 @@ This project is about developing a multiple-choice quiz game. The users choose t
 
 The users of the <em>Wonderful Words Game</em> want to play an online multiple-choice quiz game that will enrich their vocabulary with unusual words. They like to be engaged with this kind of games so being engaged is also a user's goal.
 
+[Back to TOC](#table-of-contents)
+
 ## Target Audience
 
 The <em>Wonderful Words Game</em> is targeted to adults who are word lovers and have fun with learning new words.
+
+[Back to TOC](#table-of-contents)
 
 ## Owner's Goal
 
@@ -42,6 +46,8 @@ The goal of the <em>Wonderful Words Game</em> is to:
 * Engage the user
   * Get users to play repeatedly 
   * Have the users repeating visits to the website
+
+[Back to TOC](#table-of-contents)
 
 ## Description of the Game
 
@@ -65,6 +71,8 @@ The details consist in presenting each question again, along with the correct an
 
 ![Game Session Summary](assets/doc-images/question-wrong-answer-details.png)
 
+[Back to TOC](#table-of-contents)
+
 ## Project Objectives
 
 The objectives of working on this project are:
@@ -86,6 +94,8 @@ The objectives of working on this project are:
   * In the <em>Wonderful Words Game</em> program, the information about the game session is kept in memory, updated each time the user responds to a game question and accessed at the end of the game session, to present the summary and the details of the game session to the user.
 * Demonstrate and document the development process through a version control system such as GitHub. Use Git & GitHub for version control of the web application up to deployment.
 * Deploy a final version of the application code to a cloud-based platform (Heroku). Ensure that the deployed application is free of commented out code.
+
+[Back to TOC](#table-of-contents)
 
 ## Features 
 
@@ -254,7 +264,9 @@ By using the above structure, it will be possible to adapt the Python code for t
 
 Note, this new feature will broaden the <em>Wonderful Words Game</em> target audience.
 
-### Technologies
+[Back to TOC](#table-of-contents)
+
+## Technologies
 
 * [Python 3.8.11](https://www.python.org/downloads/release/python-3811/)
 
@@ -279,6 +291,8 @@ Used to deploy the application.
 * <a href="http://pep8online.com/" target="_blank">PEP8 online check</a>
 
 Used to validate the Python code.
+
+[Back to TOC](#table-of-contents)
 
 ## Testing
 
@@ -504,6 +518,8 @@ The game_settings.py file was updated and submitted again to the pep8 validator 
 
 There are no unfixed bugs.
 
+[Back to TOC](#table-of-contents)
+
 ## Deployment
 
 The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
@@ -528,7 +544,11 @@ The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
 15. Click the "View" button in the "Manual deploy" section or click "Open app" at the top of the page. This is for you to confirm that the app is deployed.
 16. In the "Automatic deploys" section, click "Enable Automatic Deploys".
 
+[Back to TOC](#table-of-contents)
+
 ## Credits
 
 * Lexico.com for the <a href="https://www.lexico.com/explore/weird-and-wonderful-words" target="_blank">dictionary</a> used in this game (https://www.lexico.com/explore/weird-and-wonderful-words).
 * Code Institute for the deployment terminal.
+
+[Back to TOC](#table-of-contents)
