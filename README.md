@@ -199,7 +199,9 @@ In this future version, the structure of the game settings will be as shown belo
 
 By using the above structure, it will be possible to adapt the python code for this game so that the user will be able to choose the dictionary at runtime.
 
-## Testing 
+## Testing
+
+In this section, a game with X questions and Y options per question is referred to as an X/Y game.
 
 ## Validate Correctness
 
@@ -213,7 +215,7 @@ Test Conditions:
 
 Based on the https://www.lexico.com/explore/weird-and-wonderful-words dictionary, a series of game sessions was played and all the answers were validated against the dictionary. No errors were found.
 
-Below are some examples of the tests that were conducted, with different numbers of questions and different numbers of options. In these examples, a game with X questions and Y options per question is referred as an X/Y game.
+Below are some examples of the tests that were conducted, with different numbers of questions and different numbers of options.
 
 ### Question in a 10/3 game
 
@@ -265,6 +267,45 @@ Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
 
 ## Validate Summary of the Game
 
+### Testing a 10/6 game 
+
+First 3 questions with correct answer. Remaining questions with wrong answer and choosing different numbers along the session.
+Expected result: 3 correct questions.
+
+![Summary Testing 1a](assets/doc-images/summary-testing-1a.png)
+![Summary Testing 1b](assets/doc-images/summary-testing-1b.png)
+
+![Summary Testing 2a](assets/doc-images/summary-testing-2a.png)
+![Summary Testing 2b](assets/doc-images/summary-testing-2b.png)
+
+![Summary Testing 3a](assets/doc-images/summary-testing-3a.png)
+![Summary Testing 3b](assets/doc-images/summary-testing-3b.png)
+
+![Summary Testing 4a](assets/doc-images/summary-testing-4a.png)
+![Summary Testing 4b](assets/doc-images/summary-testing-4b.png)
+
+![Summary Testing 5a](assets/doc-images/summary-testing-5a.png)
+![Summary Testing 5b](assets/doc-images/summary-testing-5b.png)
+
+![Summary Testing 6a](assets/doc-images/summary-testing-6a.png)
+![Summary Testing 6b](assets/doc-images/summary-testing-6b.png)
+
+![Summary Testing 7a](assets/doc-images/summary-testing-7a.png)
+![Summary Testing 7b](assets/doc-images/summary-testing-7b.png)
+
+![Summary Testing 8a](assets/doc-images/summary-testing-8a.png)
+![Summary Testing 8b](assets/doc-images/summary-testing-8b.png)
+
+![Summary Testing 9a](assets/doc-images/summary-testing-9a.png)
+![Summary Testing 9b](assets/doc-images/summary-testing-9b.png)
+
+![Summary Testing 10a](assets/doc-images/summary-testing-10a.png)
+![Summary Testing 10b](assets/doc-images/summary-testing-10b.png)
+
+![Summary Testing 10a](assets/doc-images/summary-testing-11.png)
+
+Result: Success.
+Details: the summary of the game presents 3 as the number of correct answers.
 
 ## Validate User Input
 
