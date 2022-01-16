@@ -21,7 +21,7 @@
 
 ## User's Goal
 
-The users of the <em>Wonderful Words Game</em> want to play an online multiple-choice quiz game that will enrich their vocabulary with unusual words.
+The users of the <em>Wonderful Words Game</em> want to play an online multiple-choice quiz game that will enrich their vocabulary with unusual words. They like to be engaged with this kind of games so being engaged is also a user's goal.
 
 ## Target Audience
 
@@ -29,7 +29,12 @@ The <em>Wonderful Words Game</em> is targeted to adults who are word lovers and 
 
 ## Owner's Goal
 
-The goal of the <em>Wonderful Words Game</em> is to entertain people and foster the learning of new words. 
+The goal of the <em>Wonderful Words Game</em> is to:
+* Entertain people 
+* Foster the learning of new words
+* Engage the user
+  * Get users to play repeatedly 
+  * Have the users repeating visits to the website
 
 ## Description of the Game
 
@@ -216,7 +221,9 @@ In this future version, the structure of the game settings will be as shown belo
        ]
     }
 
-By using the above structure, it will be possible to adapt the python code for this game so that the user will be able to choose the dictionary at runtime.
+By using the above structure, it will be possible to adapt the Python code for this game so that the user will be able to choose the dictionary at runtime.
+
+Note, this new feature will broaden the <em>Wonderful Words Game</em> target audience.
 
 ### Technologies
 
