@@ -16,6 +16,8 @@
    3. [T3 Validate User Input](#t3-validate-user-input)
    4. [T4 Validator Testing](#t4-validator-testing)
    5. [T5 Unfixed bugs](#t5-unfixed-bugs)
+8. [Deployment](#deployment)
+9. [Credits](#credits)
 
 ## User's Goal
 
@@ -423,3 +425,10 @@ The game_settings.py file was updated and submitted again to the pep8 validator 
 
 There are no unfixed bugs.
 
+## Deployment
+
+Under construction.
+
+## Credits
+
+Under construction.
