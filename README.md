@@ -2,7 +2,7 @@
 
 This project is about developing a multiple-choice quiz game. The users choose the number of questions and how many options per question they would like to see. The game questions are randomically selected from an English dictionary.
 
-<a href="https://wonderful-words.herokuapp.com/" target=_blank>Here</a> is the link to the live website.
+<a href="https://wonderful-words.herokuapp.com/" target="_blank">Here</a> is the link to the live website.
 
 ![Starting Screen](assets/doc-images/starting-screen.png)
 
@@ -260,23 +260,23 @@ Note, this new feature will broaden the <em>Wonderful Words Game</em> target aud
 
 Used as the programming language. Python 3.8.11 (default, Jan  8 2022, 13:13:11).
 
-* <a href="https://docs.python.org/3.8/library/random.html" target=_blank>Python random.py library</a>
+* <a href="https://docs.python.org/3.8/library/random.html" target="_blank">Python random.py library</a>
 
 Used to generate pseudo-random numbers.
 
-* <a href="https://gitpod.io/" target=_blank>GitPod</a>
+* <a href="https://gitpod.io/" target="_blank">GitPod</a>
 
 Used for coding, testing, documenting, committing and pushing to GitHub.
 
-* <a href="https://github.com/" target=_blank>GitHub</a>
+* <a href="https://github.com/" target="_blank">GitHub</a>
 
 Used for version control of code and version control of the documentation. Here is where the source code and documentation of the project resides.
 
-* <a href="https://id.heroku.com/" target=_blank>Heroku</a>
+* <a href="https://id.heroku.com/" target="_blank">Heroku</a>
 
 Used to deploy the application.
 
-* <a href="http://pep8online.com/" target=_blank>PEP8 online check</a>
+* <a href="http://pep8online.com/" target="_blank">PEP8 online check</a>
 
 Used to validate the Python code.
 
@@ -508,11 +508,11 @@ There are no unfixed bugs.
 
 The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
 
-<a href="https://id.heroku.com/" target=_blank>Heroku</a> was used to deploy the application.
+<a href="https://id.heroku.com/" target="_blank">Heroku</a> was used to deploy the application.
 
 1. Make sure the requirements.txt file is correct. 
    * This was done by running: `pip3 freeze > requirements.txt` in the GitPod terminal. No requirements were identified, no requirements were written to the requirements.txt file.
-2. Logged into the <a href="https://id.heroku.com/" target=_blank>Heroku</a> website, choose "New" > "Create new app".
+2. Logged into the <a href="https://id.heroku.com/" target="_blank">Heroku</a> website, choose "New" > "Create new app".
 3. Enter the "App name", "Choose a region" and then click "Create app".
 4. Click "Settings" and then in the "Config Vars" section, click "Reveal Config Vars".
 5. Type PORT in the KEY input field and type 8000 in the VALUE input field and then click "Add".
@@ -530,5 +530,5 @@ The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
 
 ## Credits
 
-* Lexico.com for the <a href="https://www.lexico.com/explore/weird-and-wonderful-words" target=_blank>dictionary</a> used in this game (https://www.lexico.com/explore/weird-and-wonderful-words).
+* Lexico.com for the <a href="https://www.lexico.com/explore/weird-and-wonderful-words" target="_blank">dictionary</a> used in this game (https://www.lexico.com/explore/weird-and-wonderful-words).
 * Code Institute for the deployment terminal.
