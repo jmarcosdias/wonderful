@@ -222,7 +222,7 @@ By using the above structure, it will be possible to adapt the python code for t
 
 Used as the programming language. Python 3.8.11 (default, Jan  8 2022, 13:13:11).
 
-* [Python library random.py](https://docs.python.org/3.8/library/random.html)
+* [Python random.py library](https://docs.python.org/3.8/library/random.html)
 
 Used to generate pseudo-random numbers.
 
