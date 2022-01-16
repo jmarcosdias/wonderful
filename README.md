@@ -366,5 +366,8 @@ The game_settings.py file was updated and submitted again to the pep8 validator 
 
 ![Validator Testing 2a](assets/doc-images/pep8-validator-result-2b.png)
 
+## T5 - Unfixed bugs
+
+There are no unfixed bugs.
 
 
