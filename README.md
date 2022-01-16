@@ -9,7 +9,7 @@
 5. [Features](#features)
     1. [Existing Features](#existing-features)
     2. [Future Features](#future-features)
-6. [Used Technologies](#used-technologies)
+6. [Technologies](#technologies)
 7. [Testing](#testing)
    1. [T1 Validate Questions, Answers and Evaluation](#t1-validate-questions-answers-and-evaluation)
    2. [T2 Validate Summary of the Game](#t2-validate-summary-of-the-game)
@@ -218,7 +218,7 @@ In this future version, the structure of the game settings will be as shown belo
 
 By using the above structure, it will be possible to adapt the python code for this game so that the user will be able to choose the dictionary at runtime.
 
-### Used Technologies
+### Technologies
 
 * [Python 3.8.11](https://www.python.org/downloads/release/python-3811/)
 
