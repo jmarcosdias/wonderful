@@ -373,6 +373,7 @@ Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
 #### T2.1 Testing a 10/6 game 
 
 First 3 questions with correct answer. Remaining questions with wrong answer and choosing different numbers along the session.
+
 Expected result: 3 correct questions.
 
 ![Summary Testing 1a](assets/doc-images/summary-testing-1a.png)
@@ -408,6 +409,7 @@ Expected result: 3 correct questions.
 ![Summary Testing 10a](assets/doc-images/summary-testing-11.png)
 
 Result: Success.
+
 Details: the summary of the game presents 3 as the number of correct answers.
 
 ### T3 Validate User Input
