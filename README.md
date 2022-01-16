@@ -1,6 +1,6 @@
 # Wonderful Words Game
 
-This project is about developing a multiple-choice quiz game. The users choose the number of questions and how many options per question they would like to see. The game questions are randomically selected from an English dictionary.
+This project is about developing a multiple-choice quiz game. The users choose the number of questions and how many options per question they would like to see. During each game session, the game questions are randomically selected from an English dictionary.
 
 <a href="https://wonderful-words.herokuapp.com/" target="_blank">Here</a> is the link to the live website.
 
