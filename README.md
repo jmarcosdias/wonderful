@@ -11,19 +11,20 @@ This project is about developing a multiple-choice quiz game. The users choose t
 1. [User's Goal](#users-goal)
 2. [Target Audience](#target-audience)
 3. [Owner's Goal](#owners-goal)
-4. [Description of the Game](#description-of-the-game)
-5. [Features](#features)
+4. [Project Objectives](#project-objectives)
+5. [Description of the Game](#description-of-the-game)
+6. [Features](#features)
     1. [Existing Features](#existing-features)
     2. [Future Features](#future-features)
-6. [Technologies](#technologies)
-7. [Testing](#testing)
+7. [Technologies](#technologies)
+8. [Testing](#testing)
    1. [T1 Validate Questions, Answers and Evaluation](#t1-validate-questions-answers-and-evaluation)
    2. [T2 Validate Summary of the Game](#t2-validate-summary-of-the-game)
    3. [T3 Validate User Input](#t3-validate-user-input)
    4. [T4 Validator Testing](#t4-validator-testing)
    5. [T5 Unfixed bugs](#t5-unfixed-bugs)
-8. [Deployment](#deployment)
-9. [Credits](#credits)
+9. [Deployment](#deployment)
+10. [Credits](#credits)
 
 ## User's Goal
 
@@ -63,6 +64,28 @@ The details consist in presenting each question again, along with the correct an
 ![Game Session Summary](assets/doc-images/question-correct-answer-details.png)
 
 ![Game Session Summary](assets/doc-images/question-wrong-answer-details.png)
+
+## Project Objectives
+
+The objectives of working on this project are:
+
+* Write Python code that follows the PEP8 guidelines.
+* Ensure all the functionalities of the <em>Wonderful Words Game</em> work.
+* Write readable, indented and clear code, with consistent and meaningful naming conventions.
+* Write code that handles empty or invalid input data.
+* Clearly separate and identify code written for the application and code from external sources (e.g. Python random library external source).
+* Write code that ensures a consistent flow of logic and data with well defined granular functions.
+* Implement standard programming constructs such as flow control, iteration, selection, functions, object-oriented programming and data structures - as appropriate - to achieve the <em>Wonderful Words Game</em> project goals.
+* Implement exception/error handling to optimize the user experience. If the user accidently answers with something invalid, the program will not stop. The program will ask again so that the user can continue.
+* Document the project by using consistent and effective markdown formatting, well-structured and easy to follow.
+* Explains the project purpose and the value that it provides to its users.
+* Identify and repair coding errors during the development and testing work.
+* Implement manual testing procedures for code validation.
+* Use library software for building the program. Implement the use of external Python libraries where appropriate to provide the functionality that the project requires (Python random library).
+* Implement a data model, application features and business logic to manage, query and manipulate data to meet given needs in a particular real-world domain. Implement a working data model that supports the intended project functionality. Write code that queries and manipulates data to meet the identified vital project needs.
+  * In the <em>Wonderful Words Game</em> program, the information about the game session is kept in memory, updated each time the user responds to a game question and accessed at the end of the game session, to present the summary and the details of the game session to the user.
+* Demonstrate and document the development process through a version control system such as GitHub. Use Git & GitHub for version control of the web application up to deployment.
+* Deploy a final version of the application code to a cloud-based platform (Heroku). Ensure that the deployed application is free of commented out code.
 
 ## Features 
 
