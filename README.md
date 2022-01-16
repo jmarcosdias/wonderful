@@ -38,7 +38,7 @@ The details consist in presenting each question again, along with the correct an
 
 ### Existing Features
 
-- The starting screen
+#### The starting screen
 
 A welcome message and an introductory explanation is presented to the user.
 
@@ -59,7 +59,7 @@ The possible values are in the `[min_n_questions, max_n_questions]` integer inte
         ...
     }
 
-- Ability to choose the number of options
+#### Ability to choose the number of options
 
 The user can choose the number of options that will be made available per question in a game session.
 
@@ -74,7 +74,7 @@ The possible values are in the `[min_n_options, max_n_options]` integer interval
         ...
     }
 
-- Preparation of questions and corresponding options to answer
+#### Preparation of questions and corresponding options to answer
 
 For each game session, the program randomically picks up the set of questions and options to answer those questions.
 
@@ -89,7 +89,7 @@ The questions and options to answer are picked up from the dictionary that is de
         }
     }
 
-- Present a question and collect the answer
+#### Present a question and collect the answer
 
 Along the game session, each questions is presented with the corresponding options to answer and then the answer is collected.
 
@@ -116,13 +116,13 @@ Below is an example of possible contents of `__ux_list` at the end of a game ses
         }
     ]
 
-- Summary of the game session
+#### Summary of the game session
 
 The summary is presented after the last question.
 
 ![Game Session Summary](assets/doc-images/summary-of-the-game-session-1.png)
 
-- Details of the game session
+#### Details of the game session
 
 If the user selects the details option, after the session summary, the details are presented. 
 
@@ -138,7 +138,7 @@ After the last question presented in the details, the user can choose to play ag
 
 In a future release, the following feature is planned to be implemented.
 
-- Ability to choose the dictionary
+#### Ability to choose the dictionary
 
 Currently, only one dictionary is used along this game. The user has no option to choose the dictionary.
 
@@ -201,51 +201,70 @@ By using the above structure, it will be possible to adapt the python code for t
 
 ## Testing 
 
-## Validate Correctness of the Answers
+## Validate Correctness
 
-This section is to validate the correctness of each answer in the game 
+The tests in this section are to validate the correctness of questions and options presented to the user and the correctness of the evaluation of the answers.
+
+Test Conditions:
+1. All questions and options must be taken from the game dictionary. 
+1. There must be only one correct answer. 
+1. When the user selects the correct answer, the game must consider this answer correct.
+1. When the user selects an incorrect answer, the game must not consider this answer correct. 
 
 Based on the https://www.lexico.com/explore/weird-and-wonderful-words dictionary, a series of game sessions was played and all the answers were validated against the dictionary. No errors were found.
 
-Below are some examples of these tests that were conducted with different numbers of questions and different numbers of options.
+Below are some examples of the tests that were conducted, with different numbers of questions and different numbers of options. In these examples, a game with X questions and Y options per question is referred as an X/Y game.
 
-### Testing Example 1
+### Question in a 10/3 game
+
+User selects the correct answer. Conditions 1, 2 and 3 must be satisfied.
 
 Correct answer is 'decubitus'.
 
-![Correctness Test Example 1a](assets/doc-images/correctness-testing-exampe-1a.png)
+![Correctness Test Example 1a](assets/doc-images/correctness-testing-example-1a.png)
 
-![Correctness Test Example 1b](assets/doc-images/correctness-testing-exampe-1b.png)
+![Correctness Test Example 1b](assets/doc-images/correctness-testing-example-1b.png)
 
-![Correctness Test Example 1c](assets/doc-images/correctness-testing-exampe-1c.png)
+![Correctness Test Example 1c](assets/doc-images/correctness-testing-example-1c.png)
 
-Result: Success
+Result: Success.
 
-### Testing Example 2
+Details: User selected correct answer. Conditions 1, 2 and 3 were verified.
+
+### Question in a 10/6 game
+
+User selects an incorrect answer. Conditions 1, 2 and 4 must be satisfied.
 
 Correct answer is 'afreet'.
 
-![Correctness Test Example 2a](assets/doc-images/correctness-testing-exampe-2a.png)
+![Correctness Test Example 2a](assets/doc-images/correctness-testing-example-2a.png)
 
-![Correctness Test Example 2b](assets/doc-images/correctness-testing-exampe-2b.png)
+![Correctness Test Example 2b](assets/doc-images/correctness-testing-example-2b.png)
 
-![Correctness Test Example 2c](assets/doc-images/correctness-testing-exampe-2c.png)
+![Correctness Test Example 2c](assets/doc-images/correctness-testing-example-2c.png)
 
-Result: Success
+Result: Success.
 
-### Testing Example 3
+Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
+
+### Question in a 1/1 game
+
+User selects an incorrect answer. Conditions 1, 2 and 4 must be satisfied.
 
 Correct answer is 'higgler'.
 
-![Correctness Test Example 3a](assets/doc-images/correctness-testing-exampe-3a.png)
+![Correctness Test Example 3a](assets/doc-images/correctness-testing-example-3a.png)
 
-![Correctness Test Example 3b](assets/doc-images/correctness-testing-exampe-3b.png)
+![Correctness Test Example 3b](assets/doc-images/correctness-testing-example-3b.png)
 
-![Correctness Test Example 3c](assets/doc-images/correctness-testing-exampe-3c.png)
+![Correctness Test Example 3c](assets/doc-images/correctness-testing-example-3c.png)
 
-Result: Success
+Result: Success.
+
+Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
 
 ## Validate Summary of the Game
+
 
 ## Validate User Input
 
