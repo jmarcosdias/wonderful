@@ -530,4 +530,5 @@ The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
 
 ## Credits
 
-Under construction.
+* Lexico.com for the <a href="https://www.lexico.com/explore/weird-and-wonderful-words" target=_blank>dictionary</a> used in this game (https://www.lexico.com/explore/weird-and-wonderful-words).
+* Code Institute for the deployment terminal.
