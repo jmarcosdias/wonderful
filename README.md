@@ -9,6 +9,7 @@
 5. [Features](#features)
     1. [Existing Features](#existing-features)
     2. [Future Features](#future-features)
+6. [Technologies Used](#technologies-used)
 7. [Testing](#testing)
    1. [T1 Validate Questions, Answers and Evaluation](#t1-validate-questions-answers-and-evaluation)
    2. [T2 Validate Summary of the Game](#t2-validate-summary-of-the-game)
@@ -215,6 +216,31 @@ In this future version, the structure of the game settings will be as shown belo
 
 By using the above structure, it will be possible to adapt the python code for this game so that the user will be able to choose the dictionary at runtime.
 
+### Technologies Used
+
+* [Python 3.8.11](https://www.python.org/downloads/release/python-3811/)
+Used as the programming language. Python 3.8.11 (default, Jan  8 2022, 13:13:11).
+
+* [random.py library](https://docs.python.org/3.8/library/random.html)
+Used to generate pseudo-random numbers.
+
+* [GitPod](https://gitpod.io/)
+Used for coding, testing, documenting, commiting and pushing to GitHub.
+
+* [GitHub](https://github.com/)
+Used for version control of code and version control of the documentation. Here is where the source code and documentation of the project resides.
+
+* [Heroku](https://id.heroku.com/)
+Used to deploy the application.
+
+* [PEP8 online check](http://pep8online.com/)
+Used to validate the Python code.
+
+
+
+
+
+
 ## Testing
 
 In this section, a game with X questions and Y options per question is referred to as an X/Y game.
@@ -395,5 +421,8 @@ The game_settings.py file was updated and submitted again to the pep8 validator 
 ### T5 Unfixed bugs
 
 There are no unfixed bugs.
+
+## Deployment
+
 
 
