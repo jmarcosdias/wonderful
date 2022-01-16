@@ -1,5 +1,11 @@
 # Wonderful Words Game
 
+This project is about developing a multiple-choice quiz game. The users choose the number of questions and how many options per question they would like to see. The game questions are randomically selected from an english dictionary.
+
+[Here](https://wonderful-words.herokuapp.com/) is the link for the live website.
+
+![Starting Screen](assets/doc-images/starting-screen.png)
+
 ## Table of Contents
 
 1. [User's Goal](#users-goal)
@@ -46,7 +52,7 @@ For each question, only one option is correct.
 
 Below is a screenshot where a question number 7 is presented to the user along with the options the user can choose. This screenshot was taken from a game session with 10 questions and 6 options per question.
 
-![Mockup Image](assets/doc-images/mockup.png)
+![Game Question](assets/doc-images/game-question.png)
 
 After the last question, a summary of the game session is presented. At this point, the user can choose to play again, exit or see the details.
 
