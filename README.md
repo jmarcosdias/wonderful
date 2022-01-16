@@ -260,23 +260,23 @@ Note, this new feature will broaden the <em>Wonderful Words Game</em> target aud
 
 Used as the programming language. Python 3.8.11 (default, Jan  8 2022, 13:13:11).
 
-* [Python random.py library](https://docs.python.org/3.8/library/random.html)
+* <a href="https://docs.python.org/3.8/library/random.html" target=_blank>Python random.py library</a>
 
 Used to generate pseudo-random numbers.
 
-* [GitPod](https://gitpod.io/)
+* <a href="https://gitpod.io/" target=_blank>GitPod</a>
 
 Used for coding, testing, documenting, committing and pushing to GitHub.
 
-* [GitHub](https://github.com/)
+* <a href="https://github.com/" target=_blank>GitHub</a>
 
 Used for version control of code and version control of the documentation. Here is where the source code and documentation of the project resides.
 
-* [Heroku](https://id.heroku.com/)
+* <a href="https://id.heroku.com/" target=_blank>Heroku</a>
 
 Used to deploy the application.
 
-* [PEP8 online check](http://pep8online.com/)
+* <a href="http://pep8online.com/" target=_blank>PEP8 online check</a>
 
 Used to validate the Python code.
 
@@ -506,7 +506,27 @@ There are no unfixed bugs.
 
 ## Deployment
 
-Under construction.
+The steps used to deploy the <em>Wonderful Words Game</em> are explained below:
+
+<a href="https://id.heroku.com/" target=_blank>Heroku</a> was used to deploy the application.
+
+1. Make sure the requirements.txt file is correct. 
+   * This was done by running: `pip3 freeze > requirements.txt` in the GitPod terminal. No requirements were identified, no requirements were written to the requirements.txt file.
+2. Logged into the <a href="https://id.heroku.com/" target=_blank>Heroku</a> website, choose "New" > "Create new app".
+3. Enter the "App name", "Choose a region" and then click "Create app".
+4. Click "Settings" and then in the "Config Vars" section, click "Reveal Config Vars".
+5. Type PORT in the KEY input field and type 8000 in the VALUE input field and then click "Add".
+6. In the "Buildpacks" section, click "Add buildpack".
+7. Select "python" and click "Save changes".
+8. In the "Buildpacks" section, click "Add buildpack".
+9. Select "node.js" and click "Save changes".
+10. In the "Deployment method" section, click "Deploy" and then click "GitHub".
+11. In the "Connect to GitHub" section, search the "wonderful" repository (jmarcosdias/wonderful).
+12. Click "Connect", next to the repository name (jmarcosdias/wonderful).
+13. In the "Manual deploy" section, click "Deploy Branch", to deploy from the main branch.
+14. Wait for the deploy to finish. You will see the build log in the "Manual deploy" section.
+15. Click the "View" button in the "Manual deploy" section or click "Open app" at the top of the page. This is for you to confirm that the app is deployed.
+16. In the "Automatic deploys" section, click "Enable Automatic Deploys".
 
 ## Credits
 
