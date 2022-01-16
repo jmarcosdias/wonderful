@@ -203,7 +203,7 @@ By using the above structure, it will be possible to adapt the python code for t
 
 In this section, a game with X questions and Y options per question is referred to as an X/Y game.
 
-## Validate Questions, Answers and Answers' Evaluation
+## T1 - Validate Questions, Answers and Answers' Evaluation
 The tests in this section are to validate the correctness of questions and options presented to the user and the correctness of the evaluation of the answers.
 
 Test Conditions:
@@ -216,7 +216,7 @@ Based on the https://www.lexico.com/explore/weird-and-wonderful-words dictionary
 
 Below are some examples of the tests that were conducted, with different numbers of questions and different numbers of options.
 
-### Question in a 10/3 game
+### T1.1 - Question in a 10/3 game
 
 User selects the correct answer. Conditions 1, 2 and 3 must be satisfied.
 
@@ -232,7 +232,7 @@ Result: Success.
 
 Details: User selected correct answer. Conditions 1, 2 and 3 were verified.
 
-### Question in a 10/6 game
+### T1.2 - Question in a 10/6 game
 
 User selects an incorrect answer. Conditions 1, 2 and 4 must be satisfied.
 
@@ -248,7 +248,7 @@ Result: Success.
 
 Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
 
-### Question in a 1/1 game
+### T1.3 - Question in a 1/1 game
 
 User selects an incorrect answer. Conditions 1, 2 and 4 must be satisfied.
 
@@ -264,9 +264,9 @@ Result: Success.
 
 Details: User selected incorrect answer. Conditions 1, 2 and 4 were verified.
 
-## Validate Summary of the Game
+## T2 - Validate Summary of the Game
 
-### Testing a 10/6 game 
+### T2.1 - Testing a 10/6 game 
 
 First 3 questions with correct answer. Remaining questions with wrong answer and choosing different numbers along the session.
 Expected result: 3 correct questions.
