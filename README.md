@@ -503,7 +503,7 @@ Result: Success.
 
 ### T4 Validator Testing
 
-Python code for run.py and game_settings.py was submitted to http://pep8online.com with the following results.
+The Python code for run.py and game_settings.py has been submitted to http://pep8online.com with the following results.
 
 #### T4.1 run.py
 
