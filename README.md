@@ -244,6 +244,7 @@ In this future version, the structure of the game settings will be as shown belo
              "game_dictionary":{
                 "word-1":"description-1",
                 "word-2":"description-2",
+                ...
                 "word-n":"description-n"
              }
           },
@@ -252,6 +253,7 @@ In this future version, the structure of the game settings will be as shown belo
              "game_dictionary":{
                 "word-1":"description-1",
                 "word-2":"description-2",
+                ...
                 "word-n":"description-n"
              }
           },
@@ -260,6 +262,7 @@ In this future version, the structure of the game settings will be as shown belo
              "game_dictionary":{
                 "word-1":"description-1",
                 "word-2":"description-2",
+                ...
                 "word-n":"description-n"
              }
           }
