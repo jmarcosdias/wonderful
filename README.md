@@ -107,7 +107,7 @@ A welcome message and an introductory explanation is presented to the user.
 
 ![Feature Starting Screen](assets/doc-images/starting-screen.png)
 
-- Ability to choose the number of questions
+#### Ability to choose the number of questions
 
 The user can choose the number of questions in a game session. 
 
@@ -139,7 +139,7 @@ The possible values are in the `[min_n_options, max_n_options]` integer interval
 
 #### Preparation of questions and corresponding options to answer
 
-For each game session, the program randomically picks up the set of questions and options to answer those questions.
+For each game session, the program randomically picks up the set of questions and the options for answering those questions.
 
 ![Preparation of Questions and Options](assets/doc-images/preparation-of-questions-and-options-to-answer.png)
 
@@ -158,9 +158,9 @@ Along the game session, each question is presented with the corresponding option
 
 ![Present Question Collect Answer](assets/doc-images/present-a-question-and-collect-the-answer.png)
 
-The answer is kept in memory in the object pointed by the user experience list (`__ux_list`) instance variable of the GameSession class.
+The collected user answer is kept in memory in the object pointed by the user experience list (`__ux_list`) instance variable of the GameSession class.
 
-Below is an example of possible contents of `__ux_list` at the end of a game session with 2 questions and 2 options per question. In this example, the user got the first question wrong and the second question right.
+Below is an example of possible contents for the `__ux_list` instance variable at the end of a game session with 2 questions and 2 options per question. In this example, the user got the first question wrong and the second question right.
 
     [
         {
@@ -179,23 +179,29 @@ Below is an example of possible contents of `__ux_list` at the end of a game ses
         }
     ]
 
+Regarding tha above list, we can say:
+* The first element represents question number 1.
+* The second element represents question number 2.
+* In the first element we can see that the value of `correct_answer` is different from the value of `user_answer`. That means the user did not get it right.
+* In the second element we can see that the value of `correct_answer` is equals to the value of `user_answer`. That means the user got it right.
+
 #### Summary of the game session
 
 The summary is presented after the last question.
 
-![Game Session Summary](assets/doc-images/summary-of-the-game-session-1.png)
+![Game Session Summary](assets/doc-images/summary-of-the-game-session.png)
 
 #### Details of the game session
 
-If the user selects the details option, after the session summary, the details are presented. 
+If the user selects the details option, after the summary, the details are presented. 
 
 The details consist in presenting all the questions again, one at a time, with the correct answer and the user answer.
 
-![Game Session Summary](assets/doc-images/details-of-the-game-session-1.png)
+![Game Session Details](assets/doc-images/details-of-the-game-session.png)
 
 After the last question presented in the details, the user can choose to play again or exit.
 
-![Game Session Summary](assets/doc-images/details-of-the-game-session-2.png)
+![Play or Exit](assets/doc-images/play-again-or-exit.png)
 
 ### Future Features
 
