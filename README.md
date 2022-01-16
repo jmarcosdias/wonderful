@@ -203,8 +203,7 @@ By using the above structure, it will be possible to adapt the python code for t
 
 In this section, a game with X questions and Y options per question is referred to as an X/Y game.
 
-## Validate Correctness
-
+## Validate Questions, Answers and Answers' Evaluation
 The tests in this section are to validate the correctness of questions and options presented to the user and the correctness of the evaluation of the answers.
 
 Test Conditions:
@@ -307,6 +306,39 @@ Expected result: 3 correct questions.
 Result: Success.
 Details: the summary of the game presents 3 as the number of correct answers.
 
-## Validate User Input
+## T3 - Validate User Input
 
 These tests are to ensure that a distracted or misbehaving user will not break the game.
+
+Here are some examples of what has been validated to ensure the program is correct in terms of input validation. For all the test cases below, several tests were conducted. The screenshots are only examples of the results.
+
+### T3.1 - Expected Result: program must accept only 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10.
+
+![User input testing 1](assets/doc-images/user-input-testing-1.png)
+
+Result: Sucess.
+
+### T3.2 - Expected Result: program must accept only 2, 3, 4, 5 or 6.
+
+![User input testing 1](assets/doc-images/user-input-testing-2.png)
+
+Result: Sucess.
+
+### T3.3 - Expected Result: program must accept only 1, 2 or 3.
+
+![User input testing 1](assets/doc-images/user-input-testing-3.png)
+
+Result: Sucess.
+
+### T3.4 - Expected Result: program must accept only 1, p, P, 2, e, E, 3, d or D.
+
+![User input testing 1](assets/doc-images/user-input-testing-4.png)
+
+Result: Sucess.
+
+### T3.5 - Expected Result: program must accept only 1, p, P, 2, e or E.
+
+![User input testing 1](assets/doc-images/user-input-testing-5.png)
+
+Result: Sucess.
+
