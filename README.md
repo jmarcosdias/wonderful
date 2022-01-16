@@ -1,6 +1,6 @@
 # Wonderful Words Game
 
-This project is about developing a multiple-choice quiz game. The users choose the number of questions and how many options per question they would like to see. The game questions are randomically selected from an english dictionary.
+This project is about developing a multiple-choice quiz game. The users choose the number of questions and how many options per question they would like to see. The game questions are randomically selected from an English dictionary.
 
 <a href="https://wonderful-words.herokuapp.com/" target=_blank>Here</a> is the link to the live website.
 
@@ -121,7 +121,7 @@ The questions and options to answer are picked up from the dictionary that is de
 
 #### Present a question and collect the answer
 
-Along the game session, each questions is presented with the corresponding options to answer and then the answer is collected.
+Along the game session, each question is presented with the corresponding options to answer and then the answer is collected.
 
 ![Present Question Collect Answer](assets/doc-images/present-a-question-and-collect-the-answer.png)
 
@@ -170,7 +170,7 @@ In a future release, the following feature is planned to be implemented.
 
 #### Ability to choose the dictionary
 
-Currently, only one dictionary is used along this game. The user has no option to choose the dictionary.
+Currently, only one dictionary is used in this game. The user has no option to choose the dictionary.
 
 In the current version, there is only the "Weird And Wonderful Words" dictionary, which is great, but is not good for all purposes. For example this dictionary is not good for beginners or for children.
 
@@ -190,7 +190,7 @@ The current structure of the game settings is as follows.
         }
     }
 
-A future version of this game is planned to accomodate different dictionaries.
+A future version of this game is planned to accommodate different dictionaries.
 
 In this future version, the structure of the game settings will be as shown below.
 
@@ -243,7 +243,7 @@ Used to generate pseudo-random numbers.
 
 * [GitPod](https://gitpod.io/)
 
-Used for coding, testing, documenting, commiting and pushing to GitHub.
+Used for coding, testing, documenting, committing and pushing to GitHub.
 
 * [GitHub](https://github.com/)
 
@@ -372,43 +372,86 @@ Here are some examples of what has been validated to ensure the program is corre
 
 #### T3.1 User Input How Many Questions
 
-Expected Result: program must accept only 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10.
+Answering to the "How Many Questions" question with the following values:
+* space
+* 0
+* 11
+* g
+* %
+
+Expected Result: program must not accept those values.
+
+Acceptable values in this case would be: 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10.
 
 ![User input testing 1](assets/doc-images/user-input-testing-1.png)
 
-Result: Sucess.
+Result: Success.
 
 #### T3.2 User Input How Many Options
 
-Expected Result: program must accept only 2, 3, 4, 5 or 6.
+Answering to the "How Many Options" question with the following values:
+* space
+* "1"
+* "7"
+* "h"
+* "£"
 
-![User input testing 1](assets/doc-images/user-input-testing-2.png)
+Expected Result: program must not accept those values.
 
-Result: Sucess.
+Acceptable values in this case would be: 2, 3, 4, 5 or 6.
 
-#### T3.3 User Input Answer a Question
+![User input testing 2](assets/doc-images/user-input-testing-2.png)
 
-Expected Result: program must accept only 1, 2 or 3 in a X/3 game.
+Result: Success.
 
-![User input testing 1](assets/doc-images/user-input-testing-3.png)
+#### T3.3 User Input Answer a Game Question
 
-Result: Sucess.
+Answering to a game question in a X/3 game with the following values:
+* "number 2"
+* "Zyrian"
+* "0"
+* "4"
+* "h"
+* "?"
+
+Expected Result: program must not accept those values.
+
+Acceptable values in this case would be: 1, 2 or 3.
+
+![User input testing 3](assets/doc-images/user-input-testing-3.png)
+
+Result: Success.
 
 #### T3.4 User Input Play, Exit or Details
 
-Expected Result: program must accept only 1, p, P, 2, e, E, 3, d or D.
+Answering to a play, exit or details question with the following values:
+* "4"
+* "0"
+* "details"
 
-![User input testing 1](assets/doc-images/user-input-testing-4.png)
+Expected Result: program must not accept those values.
 
-Result: Sucess.
+Acceptable values in this case would be: 1, p, P, 2, e, E, 3, d or D.
+
+![User input testing 4](assets/doc-images/user-input-testing-4.png)
+
+Result: Success.
 
 #### T3.5 User Input Play or Exit
 
-Expected Result: program must accept only 1, p, P, 2, e or E.
+Answering to a play or exit question with the following values:
+* space
+* "3"
+* "0"
+* "play again"
 
-![User input testing 1](assets/doc-images/user-input-testing-5.png)
+Expected Result: program must not accept those values.
 
-Result: Sucess.
+Acceptable values in this case would be: 1, p, P, 2, e or E.
+
+![User input testing 5](assets/doc-images/user-input-testing-5.png)
+
+Result: Success.
 
 ### T4 Validator Testing
 
